@@ -55,3 +55,6 @@
 [submodule "bundle/traces.vim"]
 	path = bundle/traces.vim
 	url = https://github.com/markonm/traces.vim.git
+[submodule "bundle/vim-eunuch"]
+	path = bundle/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch.git
