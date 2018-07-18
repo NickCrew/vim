@@ -34,9 +34,6 @@
 [submodule "bundle/vim-rhubarb"]
 	path = bundle/vim-rhubarb
 	url = https://github.com/tpope/vim-rhubarb.git
-[submodule "bundle/vimwiki"]
-	path = bundle/vimwiki
-	url = https://github.com/vimwiki/vimwiki
 [submodule "bundle/traces.vim"]
 	path = bundle/traces.vim
 	url = https://github.com/markonm/traces.vim.git
