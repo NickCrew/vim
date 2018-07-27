@@ -79,3 +79,9 @@
 [submodule "bundle/vim-dadbod"]
 	path = bundle/vim-dadbod
 	url = https://github.com/tpope/vim-dadbod.git
+[submodule "bundle/Rocannon"]
+	path = bundle/Rocannon
+	url = https://github.com/MicahElliott/Rocannon.git
+[submodule "bundle/vim-jinja"]
+	path = bundle/vim-jinja
+	url = https://github.com/lepture/vim-jinja.git
