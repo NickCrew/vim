@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/nickferguson/.dotfiles'
-let g:netrw_dirhist_2='/Users/nickferguson/Code/scripts/.git'
-let g:netrw_dirhist_3='/Users/nickferguson/Code/projects/python-practice'
-let g:netrw_dirhist_4='/Users/nickferguson/Code/projects/blog_nickopotamus/content'
-let g:netrw_dirhist_5='/Users/nickferguson/Code/projects/blog_nickopotamus/archetypes'
