@@ -88,3 +88,6 @@
 [submodule "bundle/asyncrun.vim"]
 	path = bundle/asyncrun.vim
 	url = https://github.com/skywind3000/asyncrun.vim
+[submodule "bundle/vim-bookmarks"]
+	path = bundle/vim-bookmarks
+	url = https://github.com/MattesGroeger/vim-bookmarks.git
