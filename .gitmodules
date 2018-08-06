@@ -28,9 +28,6 @@
 [submodule "bundle/vim-rhubarb"]
 	path = bundle/vim-rhubarb
 	url = https://github.com/tpope/vim-rhubarb.git
-[submodule "bundle/traces.vim"]
-	path = bundle/traces.vim
-	url = https://github.com/markonm/traces.vim.git
 [submodule "bundle/vim-eunuch"]
 	path = bundle/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch.git
@@ -70,21 +67,12 @@
 [submodule "bundle/dash.vim"]
 	path = bundle/dash.vim
 	url = https://github.com/rizzatti/dash.vim.git
-[submodule "bundle/vim-dadbod"]
-	path = bundle/vim-dadbod
-	url = https://github.com/tpope/vim-dadbod.git
 [submodule "bundle/vim-json"]
 	path = bundle/vim-json
 	url = https://github.com/elzr/vim-json.git
 [submodule "bundle/vim-commentary"]
 	path = bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary
-[submodule "bundle/bufexplorer"]
-	path = bundle/bufexplorer
-	url = https://github.com/jlanzarotta/bufexplorer
-[submodule "bundle/vim-indent-guides"]
-	path = bundle/vim-indent-guides
-	url = https://github.com/nathanaelkane/vim-indent-guides.git
 [submodule "bundle/asyncrun.vim"]
 	path = bundle/asyncrun.vim
 	url = https://github.com/skywind3000/asyncrun.vim
@@ -103,3 +91,6 @@
 [submodule "colors/vim-colorschemes"]
 	path = colors/vim-colorschemes
 	url = https://github.com/flazz/vim-colorschemes.git
+[submodule "bundle/vim-vagrant"]
+	path = bundle/vim-vagrant
+	url = https://github.com/hashivim/vim-vagrant.git
