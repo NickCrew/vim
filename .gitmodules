@@ -97,3 +97,6 @@
 [submodule "bundle/vim-todo-lists"]
 	path = bundle/vim-todo-lists
 	url = https://github.com/aserebryakov/vim-todo-lists
+[submodule "bundle/vim-terraform"]
+	path = bundle/vim-terraform
+	url = https://github.com/hashivim/vim-terraform.git
