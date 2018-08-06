@@ -100,3 +100,6 @@
 [submodule "bundle/vim-terraform"]
 	path = bundle/vim-terraform
 	url = https://github.com/hashivim/vim-terraform.git
+[submodule "colors/vim-colorschemes"]
+	path = colors/vim-colorschemes
+	url = https://github.com/flazz/vim-colorschemes.git
