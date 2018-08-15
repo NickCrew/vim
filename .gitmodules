@@ -28,9 +28,6 @@
 [submodule "bundle/vim-rhubarb"]
 	path = bundle/vim-rhubarb
 	url = https://github.com/tpope/vim-rhubarb.git
-[submodule "bundle/vim-eunuch"]
-	path = bundle/vim-eunuch
-	url = https://github.com/tpope/vim-eunuch.git
 [submodule "bundle/quick-scope"]
 	path = bundle/quick-scope
 	url = https://github.com/bradford-smith94/quick-scope.git
