@@ -49,7 +49,6 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'w0rp/ale', { 'for': 'python' }
 call plug#end()
 
-
 syntax on
 filetype plugin indent on
 
@@ -206,6 +205,10 @@ let g:airline#extensions#tabline#enabled = 1
 let python_highlight_all=1
 let g:airline_left_sep='' " disable the arrows
 let g:airline_right_sep=''
+
+if has("gui_running")
+	set background=dark
+endif
 
 """"" 5. Settings
 """"""""""""""""""
