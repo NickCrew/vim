@@ -1,9 +1,13 @@
 # My Vim Repo
 
-* __My vim environment is optimized primarily for:__ Python, Ansible, Hashicorp tools, Asciidoc and markdown editing.
-* __For python code completion to work:__ you will need to python-lsp-server package installed on your system.  
-* __If you want linting (ALE) to work:__ you will need a linter installed on your system such as flake8 or pylint.
-* You need the patched powerline fonts for vim-airline: https://github.com/powerline/fonts 
+* __My vim environment is optimized primarily for:__ Python, Ansible, Hashicorp tools, Asciidoc and markdown editing.  
+  
+* You should probably look into the code completion and async plug-ins if you're planning on using them.  
+  
+* __If you want linting (ALE) to work:__ you will need a linter installed on your system such as flake8 or pylint.  
+  
+* You need the patched powerline fonts for vim-airline: https://github.com/powerline/fonts  
+  
 
 __To install plugins you need to:__  
 1. `mkdir -p ~/.vim/plugged`  
