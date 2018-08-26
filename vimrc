@@ -17,31 +17,33 @@
 """"""""""""""""""""""""""""""
 
 call plug#begin()
-Plug '/usr/local/opt/fzf'
+Plug 'diepm/vim-rest-console'
+Plug '/usr/local/opt/fzf' 
 Plug 'junegunn/fzf.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'chriskempson/base16-vim'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-vinegar'
-Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-commentary'
-Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive' " Git functionality
+Plug 'sodapopcan/vim-twiggy' " extension to fugitive
+Plug 'tpope/vim-vinegar' " file browsing
+Plug 'tpope/vim-rhubarb' " Git functionality
+Plug 'tpope/vim-commentary' 
+Plug 'airblade/vim-gitgutter' 
 Plug 'plytophogy/vim-virtualenv', { 'for': 'python' }
 Plug 'Konfekt/FastFold'
 Plug 'tmhedberg/SimpylFold'
 Plug 'pearofducks/ansible-vim', { 'for': 'yaml' }
-Plug 'unblevable/quick-scope'
+Plug 'unblevable/quick-scope'	" highlight the next instance of chars for f,F,t,T movement
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
-Plug 'rizzatti/dash.vim',
+Plug 'rizzatti/dash.vim' 
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
-Plug 'aserebryakov/vim-todo-lists'
+Plug 'aserebryakov/vim-todo-lists' 
 Plug 'sjl/gundo.vim'
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
-Plug 'prabirshrestha/vim-lsp', { 'for': 'python' }
+Plug 'prabirshrestha/vim-lsp', { 'for': 'python' }  " Plugins to enable Python IDE-like functionality start here 
 Plug 'prabirshrestha/asyncomplete.vim', { 'for': 'python' }
 Plug 'prabirshrestha/asyncomplete-lsp.vim', { 'for': 'python' }
 Plug 'prabirshrestha/async.vim'
@@ -144,12 +146,14 @@ endif
 """""" 3. Plugin Settings
 """"""""""""""""""""""""""
 
+""" Twiggy
+let g:twiggy_group_locals_by_slash = 0
+let g:twiggy_local_branch_sort = 'mru'
+let g:twiggy_remote_branch_sort = 'date'
+
 """ VirtualEnv
 let g:virtualenv_auto_activate = 1
 
-""" Bookmarks
-let g:bookmark_no_default_key_mappings = 1
- 
 """ ale
 let g:airline#extensions#ale#enabled = 1
 let g:ale_completion_enabled = 1
@@ -191,22 +195,26 @@ let g:fzf_buffers_jump = 1    " jump to existing window if possible
 let g:fzf_layout = { 'down': '~45%' }
 
 
+
 """"" 4. Colors and Themes
 """""""""""""""""""""""
+
+let python_highlight_all=1
 set encoding=utf-8
 set guifont=Source\ Code\ Pro\ for\ Powerline:h16
 let g:gruvbox_contrast_dark='medium'
 colorscheme gruvbox
 "set t_Co=256    " 256 color support
 set termguicolors
+
+" airline settings
 let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let python_highlight_all=1
 let g:airline_left_sep='' " disable the arrows
 let g:airline_right_sep=''
 
-if has("gui_running")
+if has("gui_macvim")
 	set background=dark
 endif
 
