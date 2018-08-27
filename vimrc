@@ -18,6 +18,7 @@
 
 call plug#begin()
 Plug 'diepm/vim-rest-console'
+Plug 'rakr/vim-one'
 Plug '/usr/local/opt/fzf' 
 Plug 'junegunn/fzf.vim'
 Plug 'arcticicestudio/nord-vim'
@@ -42,6 +43,7 @@ Plug 'sjl/gundo.vim'
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
 Plug 'morhetz/gruvbox'
 Plug 'prabirshrestha/vim-lsp', { 'for': 'python' }  " Plugins to enable Python IDE-like functionality start here 
 Plug 'prabirshrestha/asyncomplete.vim', { 'for': 'python' }
@@ -196,27 +198,26 @@ let g:fzf_layout = { 'down': '~45%' }
 
 
 
+
 """"" 4. Colors and Themes
 """""""""""""""""""""""
 
 let python_highlight_all=1
 set encoding=utf-8
 set guifont=Source\ Code\ Pro\ for\ Powerline:h16
-let g:gruvbox_contrast_dark='medium'
-colorscheme gruvbox
+"let g:gruvbox_contrast_dark='medium'
+colorscheme one
 "set t_Co=256    " 256 color support
 set termguicolors
 
 " airline settings
-let g:airline_theme='gruvbox'
+let g:airline_theme='one'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_left_sep='' " disable the arrows
 let g:airline_right_sep=''
 
-if has("gui_macvim")
-	set background=dark
-endif
+set background=dark
 
 """"" 5. Settings
 """"""""""""""""""
@@ -321,14 +322,16 @@ let g:netrw_bufsettings = 'nomodifiable nomodified readonly nobuflisted nowrap n
 let mapleader="\<space>"
 inoremap kj <esc>
 
+" quickly save
+noremap Q :w<CR>
+
 noremap <silent> <F3> :GundoToggle<CR>
 
 " Open FZF for current dir
 noremap <leader>f :FZF<CR>
 
-" Next/Previous Buffer
-nnoremap <leader>n :bn<CR>
-nnoremap <leader>b :bp<CR>
+" Open buffer search in FZF
+noremap <silent> <F7> :Buffers<CR>
 
 " Reload .vimrc
 cmap src source $MYVIMRC 
