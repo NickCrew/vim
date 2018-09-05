@@ -1,21 +1,8 @@
 """"""""""""""""""""""""""""""
 """"" Nicholas Ferguson 2018
-"""""
-""""" Vimmin' it up dawg
-""""""""""""""""""""""""""""""
-"""""
-""""" 1. Language Settings
-""""" 2. Custom Functions
-""""" 3. Plugin Settings
-""""" 4. Colors
-""""" 5. General Settings
-""""" 6. Completions
-""""" 7. netrw
-""""" 8. Custom Mappings
-""""" 9. Abbreviations
-"""""
 """"""""""""""""""""""""""""""
 
+"{{{ 0. Plugins
 call plug#begin()
 Plug 'vim-scripts/taglist.vim'
 Plug 'diepm/vim-rest-console'
@@ -44,7 +31,6 @@ Plug 'sjl/gundo.vim'
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
 Plug 'morhetz/gruvbox'
 Plug 'prabirshrestha/vim-lsp', { 'for': 'python' }  " Plugins to enable Python IDE-like functionality start here 
 Plug 'prabirshrestha/asyncomplete.vim', { 'for': 'python' }
@@ -53,13 +39,11 @@ Plug 'prabirshrestha/async.vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'w0rp/ale', { 'for': 'python' }
 call plug#end()
-
 syntax on
 filetype plugin indent on
+"}}}
 
-
-""""" 1. Language Settings
-"""""""""""""""""""""""""""
+" {{{ 1. Language Settings
 
 " for imp module deprecated warining when using macvim
 if has('python3') && !has('patch-8.1.201')
@@ -72,6 +56,7 @@ endif
 augroup Python
      au!
      autocmd FileType python set textwidth=79
+	 autocmd FileType python set foldmethod=indent
      autocmd FileType python set autoindent
      autocmd FileType python set tabstop=4 softtabstop=4 expandtab shiftwidth=4 " python tabs
      autocmd FileType python  nnoremap <buffer> <F8> :exec '!clear; python' shellescape(@%, 1)<cr>
@@ -107,10 +92,9 @@ augroup json_autocmd
   autocmd FileType json set expandtab
   autocmd FileType json set foldmethod=syntax
 augroup END
+"}}}
 
-
-"""""" 2. Custom Functions
-"""""""""""""""""""""""""""
+"{{{ 2. Custom Functions
 
 """"" Async Quick Run
 nnoremap <F6> :call <SID>compile_and_run()<CR>
@@ -144,10 +128,9 @@ else
     echom 'pyls not installed'
     echohl NONE
 endif
+"}}}
 
-
-"""""" 3. Plugin Settings
-""""""""""""""""""""""""""
+"{{{  3. Plugin Settings
 
 """ Twiggy
 let g:twiggy_group_locals_by_slash = 0
@@ -196,12 +179,9 @@ let g:fzf_colors =
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_buffers_jump = 1    " jump to existing window if possible
 let g:fzf_layout = { 'down': '~45%' }
+"}}}
 
-
-
-
-""""" 4. Colors and Themes
-"""""""""""""""""""""""
+"{{{  4. Colors and Themes
 
 let python_highlight_all=1
 set encoding=utf-8
@@ -217,11 +197,10 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_left_sep='' " disable the arrows
 let g:airline_right_sep=''
-
 set background=dark
+"}}}
 
-""""" 5. Settings
-""""""""""""""""""
+"{{{  5. Settings
 " set clipboard^=unnamed " yank/dd/x to system clipboard in addition to vim register
 set ttimeoutlen=2
 set undodir=~/.vim/undo
@@ -267,16 +246,15 @@ set splitright       " always open splits to the right of current pane
 set winminwidth=0      " minimum width of pane
 
 """ Text Organization
-set foldmethod=indent
+set foldmethod=marker
 set breakindent
 set showbreak=\\\
 
 """ Paste
 set pastetoggle=<F2>   " Remove formatting when pasting text
+"}}}
 
-
-""""" 6. Completions
-"""""""""""""""""""""
+"{{{  6. Completions
 set path+=**    " search down into subfolders and provide tab completion
 set wildmenu      " display all matching files when using tab complete
 set wildmode=longest,list,full
@@ -286,10 +264,9 @@ set wildignore+=.DS_Store,.git,.hg,.svn
 set wildignore+=*~,*.swp,*.tmp
 set wildignorecase
 set smartcase      " ignore case unless specifically began with a capital
+"}}}
 
-
-""""" 7. netrw
-"""""""""""""""
+"{{{  7. netrw
 
 " Open 30% explorer window on left side
 noremap <silent><F4> :Vexplore<CR>
@@ -312,10 +289,9 @@ let g:netrw_winsize = 30
 let g:netrw_browse_split = 4
 " buffer setting
 let g:netrw_bufsettings = 'nomodifiable nomodified readonly nobuflisted nowrap number'
+"}}}
 
-
-""""" 8. Custom Mappings
-"""""""""""""""""""""""""""""""
+"{{{  8. Custom Mappings
 " Do not map <C-a>/<C-b> as
 " these are often used by tmux
 """""""""""""""""""""""""""""""
@@ -404,7 +380,7 @@ map <C-l> <C-W>l
 nnoremap <leader>vl :VirtualEnvList<CR>
 nnoremap <leader>vd :VirtualEnvDeactivate<CR>
 nnoremap <leader>va :VirtualEnvActivate
+"}}}
 
-
-"""""" 9. Abbreviations
-""""""""""""""""""""""""
+"{{{ 9. Abbreviations
+"}}}
