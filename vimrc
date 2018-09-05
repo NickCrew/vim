@@ -4,6 +4,7 @@
 
 "{{{ 0. Plugins
 call plug#begin()
+Plug 'dhruvasagar/vim-table-mode'
 Plug 'ap/vim-css-color'
 Plug 'vim-scripts/taglist.vim'
 Plug 'diepm/vim-rest-console'
