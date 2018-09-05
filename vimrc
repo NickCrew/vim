@@ -73,6 +73,7 @@ endif
 augroup Yaml / Ansible
     au!
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab 
+	autocmd FileType yaml set foldmethod=indent
 augroup END
 
 
@@ -96,6 +97,15 @@ augroup END
 "}}}
 
 "{{{ 2. Custom Functions
+
+""""" Set preview window height
+set previewheight=50
+au BufEnter ?* call PreviewHeightWorkAround()
+func PreviewHeightWorkAround()
+    if &previewwindow
+        exec 'setlocal winheight='.&previewheight
+    endif
+endfunc
 
 """"" Async Quick Run
 nnoremap <F6> :call <SID>compile_and_run()<CR>
@@ -191,6 +201,7 @@ set guifont=Source\ Code\ Pro\ for\ Powerline:h16
 colorscheme one
 "set t_Co=256    " 256 color support
 set termguicolors
+set background=dark
 
 " airline settings
 let g:airline_theme='one'
@@ -198,7 +209,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_left_sep='' " disable the arrows
 let g:airline_right_sep=''
-set background=dark
+
 "}}}
 
 "{{{  5. Settings
@@ -305,6 +316,12 @@ noremap Q :w<CR>
 
 " Toggle the undo tree 
 noremap <silent> <F3> :UndotreeToggle<CR>
+
+" Search Dash.app for word under cursor, current filetype
+noremap <leader>d :Dash<CR>
+
+" Search Dash.app for word under cursor, globally
+noremap <leader>D :Dash!<CR>
 
 " Open FZF for current dir
 noremap <leader>f :FZF<CR>
