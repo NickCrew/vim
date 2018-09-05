@@ -17,6 +17,7 @@
 """"""""""""""""""""""""""""""
 
 call plug#begin()
+Plug 'vim-scripts/taglist.vim'
 Plug 'diepm/vim-rest-console'
 Plug 'rakr/vim-one'
 Plug '/usr/local/opt/fzf' 
