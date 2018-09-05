@@ -4,6 +4,7 @@
 
 "{{{ 0. Plugins
 call plug#begin()
+Plug 'ap/vim-css-color'
 Plug 'vim-scripts/taglist.vim'
 Plug 'diepm/vim-rest-console'
 Plug 'rakr/vim-one'
@@ -27,7 +28,7 @@ Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 Plug 'rizzatti/dash.vim' 
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 Plug 'aserebryakov/vim-todo-lists' 
-Plug 'sjl/gundo.vim'
+Plug 'mbbill/undotree'
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -302,13 +303,17 @@ inoremap kj <esc>
 " quickly save
 noremap Q :w<CR>
 
-noremap <silent> <F3> :GundoToggle<CR>
+" Toggle the undo tree 
+noremap <silent> <F3> :UndotreeToggle<CR>
 
 " Open FZF for current dir
 noremap <leader>f :FZF<CR>
 
 " Open buffer search in FZF
-noremap <silent> <F7> :Buffers<CR>
+noremap <leader>b :Buffers<CR>
+
+" Toggle between buffers
+nnoremap <leader><tab> :bprev<CR>
 
 " Reload .vimrc
 cmap src source $MYVIMRC 
@@ -316,16 +321,16 @@ cmap src source $MYVIMRC
 " Write as super user
 cmap w!! w !sudo tee % > /dev/null
 
-
 " Show next matched string at center of screen
 nnoremap n nzz
 nnoremap N Nzz
 
+" Replace word under cursor, . to repeat on next instance of word
+nnoremap <Leader>x *``cgn
+nnoremap <Leader>X #``cgN
+
 " Show registers
 noremap <Leader>r :reg<CR>
-
-" Fast save
-noremap <Leader>m :w<CR>
 
 " Turn off highlighting until next search
 nnoremap <Leader>, :noh<CR>
@@ -345,18 +350,19 @@ nnoremap <leader>p "+p
 vnoremap <leader>y "+y
 vnoremap <leader>yy "+yy
 
+" Delete permanently / void register
+nnoremap dP "_d
+
+" Paste the last yank / from 0 register
+nnoremap yp "0p
+nnoremap yP "0P
+
 " Split line
 nnoremap gK f<space>r<CR>
 
 " Insert new line above or below, return to origin line
 noremap <ENTER> o<ESC>k
 noremap <leader><ENTER> O<ESC>j
-
-" Resize windows 
-nnoremap <leader><up> :res +2<CR>
-nnoremap <leader><down> :res -2<CR>
-nnoremap <leader>h :vertical resize +3<CR>
-nnoremap <leader>l :vertical resize -3<CR>
 
 " Remove trailing whitespaces from entire document
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -367,7 +373,7 @@ noremap <leader>w :set list!<CR>
 " Insert blank basic html template
 nnoremap <Leader>html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 
-" complete current line 
+" Complete current line 
 inoremap <C-c> <C-x><C-l>
 
 " Pane and tab Navigation
@@ -375,11 +381,20 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+map <C-W>z :tab split<CR>
 
-" vim-virtualenv plugin
-nnoremap <leader>vl :VirtualEnvList<CR>
-nnoremap <leader>vd :VirtualEnvDeactivate<CR>
-nnoremap <leader>va :VirtualEnvActivate
+" Switch to previously accessed split
+map <C-p> <C-W><C-p>
+
+" Open a terminal
+nnoremap <leader>tt :terminal<CR>
+
+" Resize splits with Shift+Arrows
+noremap <silent> <s-left> :vertical resize -3<CR>
+noremap <silent> <s-right> :vertical resize +3<CR>
+noremap <silent> <s-down> :resize -3<CR>
+noremap <silent> <s-up> :resize +3<CR>
+
 "}}}
 
 "{{{ 9. Abbreviations
