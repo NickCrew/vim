@@ -43,6 +43,8 @@ Plug 'w0rp/ale', { 'for': 'python' }
 call plug#end()
 syntax on
 filetype plugin indent on
+
+
 "}}}
 
 " {{{ 1. Language Settings
@@ -154,12 +156,14 @@ let g:virtualenv_auto_activate = 1
 
 """ ale
 let g:airline#extensions#ale#enabled = 1
-let g:ale_completion_enabled = 1
+let g:ale_completion_enabled = 0
 
 """ vim-lsp
 let g:LanguageClient_autostart = 1
 
-""" asyncomplete & asyncomplete-lsp
+""" asyncomplete 
+" close preview window automatically after completion
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 let g:asyncomplete_remove_duplicates = 1
 
 """ asyncrun
@@ -331,7 +335,7 @@ noremap <leader>f :FZF<CR>
 noremap <leader>b :Buffers<CR>
 
 " Toggle between buffers
-nnoremap <leader><tab> :bprev<CR>
+nnoremap <leader><tab> :b#<CR>
 
 " Reload .vimrc
 cmap src source $MYVIMRC 
