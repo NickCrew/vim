@@ -4,15 +4,12 @@
 
 "{{{ 0. Plugins
 call plug#begin()
-Plug 'fcpg/vim-waikiki'
 Plug 'dhruvasagar/vim-table-mode'
-Plug 'ap/vim-css-color'
 Plug 'vim-scripts/taglist.vim'
 Plug 'diepm/vim-rest-console'
 Plug 'rakr/vim-one'
 Plug '/usr/local/opt/fzf' 
 Plug 'junegunn/fzf.vim'
-Plug 'arcticicestudio/nord-vim'
 Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive' " Git functionality
 Plug 'sodapopcan/vim-twiggy' " extension to fugitive
