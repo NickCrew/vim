@@ -4,6 +4,7 @@
 
 "{{{ 0. Plugins
 call plug#begin()
+Plug 'fcpg/vim-waikiki'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'ap/vim-css-color'
 Plug 'vim-scripts/taglist.vim'
@@ -227,6 +228,7 @@ set undoreload=10000
 set noswapfile
 set nocompatible
 set mouse=a          " enable mouse
+
 
 """ Omnicompletion
 set completeopt-=i " do not scan included files
