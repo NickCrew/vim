@@ -32,12 +32,12 @@ Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
-Plug 'prabirshrestha/vim-lsp', { 'for': 'python' }  " Plugins to enable Python IDE-like functionality start here 
-Plug 'prabirshrestha/asyncomplete.vim', { 'for': 'python' }
-Plug 'prabirshrestha/asyncomplete-lsp.vim', { 'for': 'python' }
+Plug 'prabirshrestha/vim-lsp',	" Plugins to enable Python IDE-like functionality start here 
+Plug 'prabirshrestha/asyncomplete.vim',
+Plug 'prabirshrestha/asyncomplete-lsp.vim',
 Plug 'prabirshrestha/async.vim'
 Plug 'skywind3000/asyncrun.vim'
-Plug 'w0rp/ale', { 'for': 'python' }
+Plug 'w0rp/ale',
 call plug#end()
 syntax on
 filetype plugin indent on
@@ -46,7 +46,7 @@ filetype plugin indent on
 "}}}
 
 " {{{ 1. Language Settings
-
+"
 " for imp module deprecated warining when using macvim
 if has('python3') && !has('patch-8.1.201')
   silent! python3 1
@@ -242,7 +242,6 @@ set cursorcolumn
 set showmatch        " show matching parens, brackets, etc 
 set ruler              " display current line in status bar
 set number            " real line number shown on current line
-set relativenumber    " line numbers relative to current position
 set noshowmode
 set laststatus=2         " airline status bar always-on
 set showcmd     " show incomplete commands as they are typed in status area
@@ -315,23 +314,26 @@ let g:netrw_bufsettings = 'nomodifiable nomodified readonly nobuflisted nowrap n
 let mapleader="\<space>"
 inoremap kj <esc>
 
+" close quick fix window
+nnoremap <leader>c :ccl<CR>
+
 " quickly save
-noremap Q :w<CR>
+nnoremap Q :w<CR>
 
 " Toggle the undo tree 
-noremap <silent> <F3> :UndotreeToggle<CR>
+nnoremap <silent> <F3> :UndotreeToggle<CR>
 
 " Search Dash.app for word under cursor, current filetype
-noremap <leader>d :Dash<CR>
+nnoremap <leader>d :Dash<CR>
 
 " Search Dash.app for word under cursor, globally
-noremap <leader>D :Dash!<CR>
+nnoremap <leader>D :Dash!<CR>
 
 " Open FZF for current dir
-noremap <leader>f :FZF<CR>
+nnoremap <leader>f :FZF<CR>
 
 " Open buffer search in FZF
-noremap <leader>b :Buffers<CR>
+nnoremap <leader>b :Buffers<CR>
 
 " Toggle between buffers
 nnoremap <leader><tab> :b#<CR>
@@ -351,7 +353,7 @@ nnoremap <Leader>x *``cgn
 nnoremap <Leader>X #``cgN
 
 " Show registers
-noremap <Leader>r :reg<CR>
+nnoremap <Leader>r :reg<CR>
 
 " Turn off highlighting until next search
 nnoremap <Leader>, :noh<CR>
@@ -382,14 +384,14 @@ nnoremap yP "0P
 nnoremap gK f<space>r<CR>
 
 " Insert new line above or below, return to origin line
-noremap <ENTER> o<ESC>k
-noremap <leader><ENTER> O<ESC>j
+nnoremap <ENTER> o<ESC>k
+nnoremap <leader><ENTER> O<ESC>j
 
 " Remove trailing whitespaces from entire document
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 " Show trailing white spaces
-noremap <leader>w :set list!<CR>
+nnoremap <leader>w :set list!<CR>
 
 " Insert blank basic html template
 nnoremap <Leader>html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
