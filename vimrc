@@ -5,6 +5,7 @@
 "{{{ 0. Plugins
 call plug#begin()
 Plug 'tpope/vim-repeat'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 Plug 'craigemery/vim-autotag'
 " Plug 'diepm/vim-rest-console'
@@ -235,7 +236,7 @@ set mouse=a          " enable mouse
 
 " ctags optimizations
 set autochdir
-set tags=tags;
+set tags=.git/tags,tags;
 
 """ Omnicompletion
 set completeopt-=i " do not scan included files
