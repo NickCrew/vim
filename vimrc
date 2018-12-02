@@ -4,9 +4,10 @@
 
 "{{{ 0. Plugins
 call plug#begin()
-Plug 'dhruvasagar/vim-table-mode'
-Plug 'vim-scripts/taglist.vim'
-Plug 'diepm/vim-rest-console'
+Plug 'tpope/vim-repeat'
+Plug 'majutsushi/tagbar'
+Plug 'craigemery/vim-autotag'
+" Plug 'diepm/vim-rest-console'
 Plug 'rakr/vim-one'
 Plug '/usr/local/opt/fzf' 
 Plug 'junegunn/fzf.vim'
@@ -32,9 +33,9 @@ Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
-Plug 'prabirshrestha/vim-lsp',	" Plugins to enable Python IDE-like functionality start here 
-Plug 'prabirshrestha/asyncomplete.vim',
-Plug 'prabirshrestha/asyncomplete-lsp.vim',
+Plug 'prabirshrestha/vim-lsp', { 'for': 'python' }	 
+Plug 'prabirshrestha/asyncomplete.vim', { 'for': 'python' }
+Plug 'prabirshrestha/asyncomplete-lsp.vim', { 'for': 'python' }
 Plug 'prabirshrestha/async.vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'w0rp/ale',
@@ -101,15 +102,9 @@ augroup END
 
 """"" Set preview window height
 set previewheight=50
-au BufEnter ?* call PreviewHeightWorkAround()
-func PreviewHeightWorkAround()
-    if &previewwindow
-        exec 'setlocal winheight='.&previewheight
-    endif
-endfunc
+
 
 """"" Async Quick Run
-nnoremap <F6> :call <SID>compile_and_run()<CR>
 
 function! s:compile_and_run()
      exec 'w'
@@ -144,6 +139,14 @@ endif
 
 "{{{  3. Plugin Settings
 
+""" vim-repeat
+" Allows . to repeat non-native mappings
+silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
+
+""" Tagbar
+let g:tagbar_width = 42
+let g:tagbar_autofocus = 0
+
 """ Twiggy
 let g:twiggy_group_locals_by_slash = 0
 let g:twiggy_local_branch_sort = 'mru'
@@ -155,6 +158,11 @@ let g:virtualenv_auto_activate = 1
 """ ale
 let g:airline#extensions#ale#enabled = 1
 let g:ale_completion_enabled = 0
+let g:ale_python_auto_pipenv = 1
+let b:ale_fixers = ['autopep8']
+let g:ale_set_quickfix = 1
+let g:ale_set_loclist = 0
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 """ vim-lsp
 let g:LanguageClient_autostart = 1
@@ -196,8 +204,7 @@ let g:fzf_layout = { 'down': '~45%' }
 "}}}
 
 "{{{  4. Colors and Themes
-
-let python_highlight_all=1
+" let python_highlight_all=1
 set encoding=utf-8
 set guifont=Source\ Code\ Pro\ for\ Powerline:h16
 "let g:gruvbox_contrast_dark='medium'
@@ -226,6 +233,9 @@ set noswapfile
 set nocompatible
 set mouse=a          " enable mouse
 
+" ctags optimizations
+set autochdir
+set tags=tags;
 
 """ Omnicompletion
 set completeopt-=i " do not scan included files
@@ -265,8 +275,6 @@ set foldmethod=marker
 set breakindent
 set showbreak=\\\
 
-""" Paste
-set pastetoggle=<F2>   " Remove formatting when pasting text
 "}}}
 
 "{{{  6. Completions
@@ -283,8 +291,6 @@ set smartcase      " ignore case unless specifically began with a capital
 
 "{{{  7. netrw
 
-" Open 30% explorer window on left side
-noremap <silent><F4> :Vexplore<CR>
 " hide banner
 let g:netrw_banner = 0
 " hide swp, DS_Store files
@@ -312,31 +318,63 @@ let g:netrw_bufsettings = 'nomodifiable nomodified readonly nobuflisted nowrap n
 """""""""""""""""""""""""""""""
 
 let mapleader="\<space>"
-inoremap kj <esc>
 
-" close quick fix window
-nnoremap <leader>c :ccl<CR>
+"""  8A. Toggles
+" F8 is set to run python code, only if the filetype is *.py
 
-" quickly save
-nnoremap Q :w<CR>
+" QuickFix Window
+map <F11> :call QuickFixToggle()<CR>
+
+" Tagbar opens on right
+nmap <F7> :TagbarToggle<CR>
+
+" AsyncRun - Compile and Run
+nnoremap <F6> :call <SID>compile_and_run()<CR>
+
+" Remove formatting when pasting text
+set pastetoggle=<F2>  
+
+" Open 30% explorer window on left side
+noremap <silent><F4> :Vexplore<CR>
 
 " Toggle the undo tree 
-nnoremap <silent> <F3> :UndotreeToggle<CR>
+noremap <silent> <F3> :UndotreeToggle<CR>
 
 " Search Dash.app for word under cursor, current filetype
-nnoremap <leader>d :Dash<CR>
+noremap <leader>d :Dash<CR>
 
 " Search Dash.app for word under cursor, globally
-nnoremap <leader>D :Dash!<CR>
+noremap <leader>D :Dash!<CR>
 
-" Open FZF for current dir
-nnoremap <leader>f :FZF<CR>
 
-" Open buffer search in FZF
-nnoremap <leader>b :Buffers<CR>
+""" 8B. FZF Search Mappings
 
-" Toggle between buffers
-nnoremap <leader><tab> :b#<CR>
+"  FZF Standard Search
+noremap <leader>F :FZF<CR>
+
+" FZF Buffer Search
+noremap <leader>B :Buffers<CR>
+
+" FZF Git Files Search
+noremap <leader>G :GFiles<CR>
+
+" FZF Ripgrep Search
+noremap <leader>R :Rg<CR>
+
+" FZF Search Lines in Current Buffer
+noremap <leader>BL :BLines<CR>
+
+" FZF Search Lines in loaded buffers
+noremap <leader>L :Lines<CR> 
+
+" FZF Search Windows
+noremap <leader>W :Windows<CR>
+
+
+" Buffer Navigation
+noremap <leader><tab> :b#<CR>
+nmap <F9> :bprev<CR>
+nmap <F10> :next<CR>
 
 " Reload .vimrc
 cmap src source $MYVIMRC 
@@ -349,14 +387,14 @@ nnoremap n nzz
 nnoremap N Nzz
 
 " Replace word under cursor, . to repeat on next instance of word
-nnoremap <Leader>x *``cgn
-nnoremap <Leader>X #``cgN
+noremap <Leader>x *``cgn
+noremap <Leader>X #``cgN
 
 " Show registers
-nnoremap <Leader>r :reg<CR>
+noremap <Leader>r :reg<CR>
 
 " Turn off highlighting until next search
-nnoremap <Leader>, :noh<CR>
+noremap <Leader>, :noh<CR>
 
 " Sort selected visual block 
 vnoremap <leader>s :sort<CR>
@@ -388,7 +426,7 @@ nnoremap <ENTER> o<ESC>k
 nnoremap <leader><ENTER> O<ESC>j
 
 " Remove trailing whitespaces from entire document
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+command! RemWhitespace :%s/\s\+$//<cr>:let @/=''<CR>
 
 " Show trailing white spaces
 nnoremap <leader>w :set list!<CR>
@@ -418,6 +456,17 @@ noremap <silent> <s-right> :vertical resize +3<CR>
 noremap <silent> <s-down> :resize -3<CR>
 noremap <silent> <s-up> :resize +3<CR>
 
+" QuickFix Window Toggle
+let g:quickfix_is_open = 0
+function! QuickFixToggle()
+	if g:quickfix_is_open
+		cclose
+		let g:quickfix_is_open = 0
+	else
+		copen
+		let g:quickfix_is_open = 1
+	endif
+endfunction
 "}}}
 
 "{{{ 9. Abbreviations
