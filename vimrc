@@ -5,9 +5,9 @@
 "{{{ 0. Plugins
 call plug#begin()
 Plug 'tpope/vim-repeat'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'majutsushi/tagbar'
+Plug 'skywind3000/vim-preview'
 Plug 'craigemery/vim-autotag'
+Plug 'majutsushi/tagbar'
 " Plug 'diepm/vim-rest-console'
 Plug 'rakr/vim-one'
 Plug '/usr/local/opt/fzf' 
@@ -140,6 +140,10 @@ endif
 
 "{{{  3. Plugin Settings
 
+""" vim-autotag
+let g:autotagTagsFile="tags"
+let g:autotagCtagsCmd="ctags -R --append --exclude=.git --exclude=.venv --fields=+nS ."
+
 """ vim-repeat
 " Allows . to repeat non-native mappings
 silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
@@ -172,6 +176,9 @@ let g:LanguageClient_autostart = 1
 " close preview window automatically after completion
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 let g:asyncomplete_remove_duplicates = 1
+let g:asyncomplete_smart_completion = 1
+let g:asyncomplete_auto_popup = 1
+
 
 """ asyncrun
 let g:asyncrun_open = 15
@@ -236,11 +243,13 @@ set mouse=a          " enable mouse
 
 " ctags optimizations
 set autochdir
-set tags=.git/tags,tags;
+set tags=tags;/
 
 """ Omnicompletion
 set completeopt-=i " do not scan included files
+set completeopt+=preview
 "set omnifunc=syntaxcomplete#Complete
+
 
 
 """ Tabs
@@ -306,7 +315,7 @@ let g:netrw_sort_options='i'
 " vspilt netrw to the left window 
 let g:netrw_altv = 1
 " 30% of the screen for the netrw window, 70% for the file window
-let g:netrw_winsize = 30
+let g:netrw_winsize = 20
 " open file in a previous buffer (right window)
 let g:netrw_browse_split = 4
 " buffer setting
