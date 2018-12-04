@@ -5,16 +5,17 @@
 "{{{ 0. Plugins
 call plug#begin()
 Plug 'tpope/vim-repeat'
+Plug 'gu-fan/riv.vim'
 Plug 'skywind3000/vim-preview'
 Plug 'craigemery/vim-autotag'
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar', { 'on': ['TagbarToggle'] }
 " Plug 'diepm/vim-rest-console'
 Plug 'rakr/vim-one'
 Plug '/usr/local/opt/fzf' 
 Plug 'junegunn/fzf.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive' " Git functionality
-Plug 'sodapopcan/vim-twiggy' " extension to fugitive
+" Plug 'sodapopcan/vim-twiggy' " extension to fugitive
 Plug 'tpope/vim-vinegar' " file browsing
 Plug 'tpope/vim-rhubarb' " Git functionality
 Plug 'tpope/vim-commentary' 
@@ -26,9 +27,9 @@ Plug 'pearofducks/ansible-vim', { 'for': 'yaml' }
 Plug 'unblevable/quick-scope'	" highlight the next instance of chars for f,F,t,T movement
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
-Plug 'rizzatti/dash.vim' 
+Plug 'rizzatti/dash.vim', { 'on': ['Dash'] }
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
-Plug 'aserebryakov/vim-todo-lists' 
+Plug 'aserebryakov/vim-todo-lists', { 'for': 'todo' }
 Plug 'mbbill/undotree'
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'vim-airline/vim-airline'
@@ -278,7 +279,8 @@ set virtualedit=block
 """ Buffers and Windows
 set splitbelow       " always open splits below current pane
 set splitright       " always open splits to the right of current pane
-set winminwidth=0      " minimum width of pane
+" set winminwidth=0      " minimum width of pane
+
 
 """ Text Organization
 set foldmethod=marker
