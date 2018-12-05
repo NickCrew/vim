@@ -57,7 +57,7 @@ endif
 
 
 """"" Python Settings
-""" F8 to execute code in current buffer
+ """ F8 to execute code in current buffer
 augroup Python
      au!
      autocmd FileType python set textwidth=79
@@ -87,8 +87,6 @@ let g:terraform_fmt_on_save = 1
 
 
 """"" JSON
-au! BufRead,BufNewFile *.json set filetype=json
-
 augroup json_autocmd
   autocmd!
   autocmd FileType json set autoindent
@@ -102,8 +100,6 @@ augroup END
 
 "{{{ 2. Custom Functions
 
-""""" Set preview window height
-set previewheight=50
 
 
 """"" Async Quick Run
@@ -242,6 +238,9 @@ set noswapfile
 set nocompatible
 set mouse=a          " enable mouse
 
+""""" Set preview window height
+set previewheight=50
+
 " ctags optimizations
 set autochdir
 set tags=tags;/
@@ -358,6 +357,9 @@ noremap <leader>d :Dash<CR>
 " Search Dash.app for word under cursor, globally
 noremap <leader>D :Dash!<CR>
 
+noremap <leader>n :bnext<CR> 
+noremap <leader>b :bprev<CR>
+
 
 """ 8B. FZF Search Mappings
 
@@ -467,18 +469,6 @@ noremap <silent> <s-left> :vertical resize -3<CR>
 noremap <silent> <s-right> :vertical resize +3<CR>
 noremap <silent> <s-down> :resize -3<CR>
 noremap <silent> <s-up> :resize +3<CR>
-
-" QuickFix Window Toggle
-let g:quickfix_is_open = 0
-function! QuickFixToggle()
-	if g:quickfix_is_open
-		cclose
-		let g:quickfix_is_open = 0
-	else
-		copen
-		let g:quickfix_is_open = 1
-	endif
-endfunction
 "}}}
 
 "{{{ 9. Abbreviations
