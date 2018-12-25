@@ -4,6 +4,9 @@
 
 "{{{ 0. Plugins
 call plug#begin()
+Plug 'hashivim/vim-vagrant'
+Plug 'hashivim/vim-packer'
+Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 Plug 'tpope/vim-repeat'
 Plug 'omnisharp/omnisharp-vim', { 'for': 'cs' }
 Plug 'gu-fan/riv.vim'
@@ -31,7 +34,6 @@ Plug 'unblevable/quick-scope'	" highlight the next instance of chars for f,F,t,T
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 Plug 'rizzatti/dash.vim', { 'on': ['Dash'] }
-Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 Plug 'aserebryakov/vim-todo-lists', { 'for': 'todo' }
 Plug 'mbbill/undotree'
 Plug 'elzr/vim-json', { 'for': 'json' }
