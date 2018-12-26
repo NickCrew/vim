@@ -44,7 +44,15 @@ let g:ale_linters = {
 			\ 'lua': ['luac'],
 			\ 'sql': ['sqlint'],
 			\ 'pgsql': ['sqlint'],
-			\ 'cpp': ['clangd']
+			\ 'cpp': ['clangd'],
+			\ 'vim': ['vint'],
+			\ 'xml': ['xmllint'],
+			\ 'rst': ['alex'],
+			\ 'html': ['alex'],
+			\ 'asciidoc': ['alex'],
+			\ 'adoc': ['alex'],
+			\ 'bash': ['shellcheck'],
+			\ 'sh': ['shellcheck']
 			\}
 
 
