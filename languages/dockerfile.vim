@@ -1,4 +1,5 @@
 " Dockerfile settings
+let g:LanguageClient_autostart = 1
 
 " Activate language server
 if executable('docker-langserver')

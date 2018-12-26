@@ -192,6 +192,7 @@ augroup langs
 	autocmd FileType json runtime! languages/json.vim
 	autocmd FileType cs runtime! languages/csharp.vim
 	autocmd FileType dockerfile runtime! languages/dockerfile.vim
+	autocmd FileType cpp runtime! languages/cpp.vim
 augroup END
 
 
