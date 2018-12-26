@@ -4,6 +4,9 @@
 "   silent! python3 1
 " endif
 
+" Start vim-lsp for language server
+let g:LanguageClient_autostart = 1
+
 """"" Python Language Server
 if executable('pyls')
     " pip install python-language-server
@@ -19,7 +22,6 @@ else
 endif
 
 
-""""" Python Settings
  """ F8 to execute code in current buffer
 set textwidth=79
 set foldmethod=indent

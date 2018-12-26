@@ -4,17 +4,16 @@
 
 "{{{ 0. Plugins
 call plug#begin()
-Plug 'hashivim/vim-vagrant'
+Plug 'hashivim/vim-vagrant', { 'for': 'ruby' }
 Plug 'hashivim/vim-packer'
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 Plug 'tpope/vim-repeat'
-Plug 'omnisharp/omnisharp-vim', { 'for': 'cs' }
+" Plug 'omnisharp/omnisharp-vim', { 'for': 'cs' }
 Plug 'gu-fan/riv.vim'
 Plug 'skywind3000/vim-preview'
 Plug 'craigemery/vim-autotag'
 Plug 'sheerun/vim-polyglot'
 Plug 'majutsushi/tagbar', { 'on': ['TagbarToggle'] }
-" Plug 'diepm/vim-rest-console'
 Plug 'rakr/vim-one'
 Plug 'joshdick/onedark.vim'
 Plug '/usr/local/opt/fzf' 
@@ -29,7 +28,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'plytophogy/vim-virtualenv', { 'for': 'python' }
 Plug 'Konfekt/FastFold'
 Plug 'tmhedberg/SimpylFold'
-Plug 'pearofducks/ansible-vim', { 'for': 'yaml' }
+Plug 'pearofducks/ansible-vim', { 'for': ['yaml', 'yml'] }
 Plug 'unblevable/quick-scope'	" highlight the next instance of chars for f,F,t,T movement
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
@@ -40,12 +39,12 @@ Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
-Plug 'prabirshrestha/vim-lsp', { 'for': 'python' }	 
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim', { 'for': 'python' }
+Plug 'prabirshrestha/vim-lsp', { 'for': ['python', 'cs', 'dockerfile'] }
+Plug 'prabirshrestha/asyncomplete.vim', { 'for': ['python', 'cs', 'dockerfile'] }
+Plug 'prabirshrestha/asyncomplete-lsp.vim', { 'for': ['python', 'cs', 'dockerfile'] }
 Plug 'prabirshrestha/async.vim'
-Plug 'skywind3000/asyncrun.vim'
-Plug 'w0rp/ale',
+Plug 'skywind3000/asyncrun.vim', { 'for': ['python', 'cs'] }
+Plug 'w0rp/ale', { 'for': ['python', 'cs', 'dockerfile', 'terraform', 'json', 'yaml', 'yml', 'Makefile', 'lua'] }
 call plug#end()
 syntax on
 filetype plugin indent on
@@ -190,6 +189,8 @@ augroup langs
 	autocmd FileType python runtime! languages/python.vim
 	autocmd FileType yaml runtime! languages/yaml.vim
 	autocmd FileType json runtime! languages/json.vim
+	autocmd FileType cs runtime! languages/csharp.vim
+	autocmd FileType dockerfile runtime! languages/dockerfile.vim
 augroup END
 
 

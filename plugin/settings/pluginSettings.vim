@@ -33,11 +33,17 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 " if value is 1, open list of errors in location window on save
 let g:ale_open_list = 0
 let g:ale_linters = {
-			\ 'cs': ['OmniSharp']
+			\ 'cs': ['OmniSharp'],
+			\ 'python': ['pylint', 'flake8'],
+			\ 'dockerfile': ['hadolint'],
+			\ 'terraform': ['tflint'],
+			\ 'json': ['jsonlint'],
+			\ 'yaml': ['yamllint', 'ansible-lint'],
+			\ 'yml': ['yamllint', 'ansible-lint'],
+			\ 'Makefile': ['checkmake'],
+			\ 'lua': ['luac']
 			\}
 
-""" vim-lsp
-let g:LanguageClient_autostart = 1
 
 """ asyncomplete 
 " close preview window automatically after completion
@@ -60,6 +66,4 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_buffers_jump = 1    " jump to existing window if possible
 let g:fzf_layout = { 'down': '~25%' }
 
-""" omnisharp 
-let g:OmniSharp_selector_ui = 'fzf'
-let g:OmniSharp_server_use_mono = 1
+
