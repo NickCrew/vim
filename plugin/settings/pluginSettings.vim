@@ -41,7 +41,9 @@ let g:ale_linters = {
 			\ 'yaml': ['yamllint', 'ansible-lint'],
 			\ 'yml': ['yamllint', 'ansible-lint'],
 			\ 'Makefile': ['checkmake'],
-			\ 'lua': ['luac']
+			\ 'lua': ['luac'],
+			\ 'sql': ['sqlint'],
+			\ 'pgsql': ['sqlint']
 			\}
 
 

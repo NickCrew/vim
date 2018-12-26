@@ -44,7 +44,7 @@ Plug 'prabirshrestha/asyncomplete.vim', { 'for': ['python', 'cs', 'dockerfile'] 
 Plug 'prabirshrestha/asyncomplete-lsp.vim', { 'for': ['python', 'cs', 'dockerfile'] }
 Plug 'prabirshrestha/async.vim'
 Plug 'skywind3000/asyncrun.vim', { 'for': ['python', 'cs'] }
-Plug 'w0rp/ale', { 'for': ['python', 'cs', 'dockerfile', 'terraform', 'json', 'yaml', 'yml', 'Makefile', 'lua'] }
+Plug 'w0rp/ale', { 'for': ['python', 'cs', 'dockerfile', 'terraform', 'json', 'yaml', 'yml', 'Makefile', 'lua', 'sql', 'pgsql'] }
 call plug#end()
 syntax on
 filetype plugin indent on
