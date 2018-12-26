@@ -52,7 +52,9 @@ let g:ale_linters = {
 			\ 'asciidoc': ['alex'],
 			\ 'adoc': ['alex'],
 			\ 'bash': ['shellcheck'],
-			\ 'sh': ['shellcheck']
+			\ 'sh': ['shellcheck'],
+			\ 'ruby': ['brakeman'],
+			\ 'rb': ['brakeman']
 			\}
 
 
