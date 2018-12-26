@@ -43,7 +43,8 @@ let g:ale_linters = {
 			\ 'Makefile': ['checkmake'],
 			\ 'lua': ['luac'],
 			\ 'sql': ['sqlint'],
-			\ 'pgsql': ['sqlint']
+			\ 'pgsql': ['sqlint'],
+			\ 'cpp': ['clangd']
 			\}
 
 

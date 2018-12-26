@@ -4,6 +4,7 @@
 
 "{{{ 0. Plugins
 call plug#begin()
+Plug 'Nequo/vim-allomancer'
 Plug 'hashivim/vim-vagrant', { 'for': 'ruby' }
 Plug 'hashivim/vim-packer'
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
@@ -39,12 +40,12 @@ Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
-Plug 'prabirshrestha/vim-lsp', { 'for': ['python', 'cs', 'dockerfile'] }
-Plug 'prabirshrestha/asyncomplete.vim', { 'for': ['python', 'cs', 'dockerfile'] }
-Plug 'prabirshrestha/asyncomplete-lsp.vim', { 'for': ['python', 'cs', 'dockerfile'] }
+Plug 'prabirshrestha/vim-lsp', { 'for': ['python', 'cs', 'dockerfile', 'cpp'] }
+Plug 'prabirshrestha/asyncomplete.vim', { 'for': ['python', 'cs', 'dockerfile', 'cpp'] }
+Plug 'prabirshrestha/asyncomplete-lsp.vim', { 'for': ['python', 'cs', 'dockerfile', 'cpp'] }
 Plug 'prabirshrestha/async.vim'
-Plug 'skywind3000/asyncrun.vim', { 'for': ['python', 'cs'] }
-Plug 'w0rp/ale', { 'for': ['python', 'cs', 'dockerfile', 'terraform', 'json', 'yaml', 'yml', 'Makefile', 'lua', 'sql', 'pgsql'] }
+Plug 'skywind3000/asyncrun.vim', { 'for': ['python', 'cs', 'cpp'] }
+Plug 'w0rp/ale', { 'for': ['python', 'cs', 'dockerfile', 'terraform', 'json', 'yaml', 'yml', 'Makefile', 'lua', 'sql', 'pgsql', 'cpp'] }
 call plug#end()
 syntax on
 filetype plugin indent on
