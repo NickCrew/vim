@@ -3,6 +3,9 @@
 " Start vim-lsp for language server
 let g:LanguageClient_autostart = 1
 
+" Mappings
+
+
 " Language server
 if executable('omnisharp')
     " pip install python-language-server

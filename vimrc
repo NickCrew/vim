@@ -45,7 +45,8 @@ Plug 'prabirshrestha/asyncomplete.vim', { 'for': ['python', 'cs', 'dockerfile', 
 Plug 'prabirshrestha/asyncomplete-lsp.vim', { 'for': ['python', 'cs', 'dockerfile', 'cpp'] }
 Plug 'prabirshrestha/async.vim'
 Plug 'skywind3000/asyncrun.vim', { 'for': ['python', 'cs', 'cpp'] }
-Plug 'w0rp/ale', { 'for': ['python', 'cs', 'dockerfile', 'terraform', 'json', 'yaml', 'yml', 'Makefile', 'lua', 'sql', 'pgsql', 'cpp', 'xml', 'rst', 'html', 'asciidoc', 'adoc', 'bash', 'sh', 'awk', 'ruby', 'rb', 'vim'] }
+Plug 'w0rp/ale'
+"Plug 'w0rp/ale', { 'for': ['python', 'cs', 'dockerfile', 'terraform', 'json', 'yaml', 'yml', 'Makefile', 'lua', 'sql', 'pgsql', 'cpp', 'xml', 'rst', 'html', 'asciidoc', 'adoc', 'bash', 'sh', 'awk', 'ruby', 'rb', 'vim'] }
 call plug#end()
 syntax on
 filetype plugin indent on
@@ -194,6 +195,9 @@ augroup langs
 	autocmd FileType dockerfile runtime! languages/dockerfile.vim
 	autocmd FileType cpp runtime! languages/cpp.vim
 augroup END
+
+" Changes the window-local current directory to be the same as current file
+autocmd BufEnter * silent! lcd %:p:h
 
 
 "

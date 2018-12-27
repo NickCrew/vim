@@ -8,6 +8,8 @@ function! Compile_and_run()
        exec "AsyncRun! javac %; time java %<"
     elseif &filetype == 'sh'
        exec "AsyncRun! time bash %"
+   elseif &filetype == 'cs'
+	   exec "AsyncRun! dotnet run <root>"
     elseif &filetype == 'python'
        exec "AsyncRun! time python %"
     endif

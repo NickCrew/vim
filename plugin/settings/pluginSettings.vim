@@ -39,7 +39,6 @@ let g:ale_linters = {
 			\ 'terraform': ['tflint'],
 			\ 'json': ['jsonlint'],
 			\ 'yaml': ['yamllint', 'ansible-lint'],
-			\ 'yml': ['yamllint', 'ansible-lint'],
 			\ 'Makefile': ['checkmake'],
 			\ 'lua': ['luac'],
 			\ 'sql': ['sqlint'],
@@ -51,19 +50,17 @@ let g:ale_linters = {
 			\ 'html': ['alex'],
 			\ 'asciidoc': ['alex'],
 			\ 'adoc': ['alex'],
-			\ 'bash': ['shellcheck'],
 			\ 'sh': ['shellcheck'],
-			\ 'ruby': ['brakeman'],
-			\ 'rb': ['brakeman']
+			\ 'ruby': ['brakeman']
 			\}
 
 
 """ asyncomplete 
-" close preview window automatically after completion
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 let g:asyncomplete_remove_duplicates = 1
 let g:asyncomplete_smart_completion = 1
 let g:asyncomplete_auto_popup = 1
+" close preview window automatically after completion
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 """ asyncrun
 let g:asyncrun_open = 15

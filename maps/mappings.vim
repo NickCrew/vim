@@ -10,6 +10,8 @@ noremap <leader>cc :cclose<CR>
 """  8A. Toggles
 " F8 is set to run python code, only if the filetype is *.py
 
+noremap <leader>a :AsyncRun 
+
 " Async compile and run
 nnoremap <F6> :call Compile_and_run()<CR>
 
