@@ -3,9 +3,9 @@
 """""""""""""""""""""""""""
 
 """ Text formatting
-set textwidth=79
+set textwidth=80
 set autoindent
-set tabstop=2 softtabstop=2 expandtab shiftwidth=2 
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 
 """ Prettier Settings
@@ -13,10 +13,11 @@ set tabstop=2 softtabstop=2 expandtab shiftwidth=2
 
 " auto formatting
 " if disabled, will run on save
-let g:prettier#autoformat = 0
+
+" let g:prettier#autoformat = 1
 
 " run prettier async 
-" let g:prettier#exec_cmd_async = 0
+let g:prettier#exec_cmd_async = 1
 
 " parsing errors opens quickfix window
 " disable if this if you enable autoformat
@@ -38,7 +39,7 @@ noremap <leader>P :Prettier<CR>
 
 " Print width
 " default = 80
-" let g:prettier#config#print_width = 79
+" let g:prettier#config#print_width = 80
 
 " Print semi-colons
 " default = true
