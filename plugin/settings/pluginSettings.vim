@@ -34,6 +34,7 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_open_list = 0
 let g:ale_linters = {
 			\ 'cs': ['OmniSharp'],
+			\ 'css': ['prettier'],
 			\ 'python': ['pylint', 'flake8'],
 			\ 'dockerfile': ['hadolint'],
 			\ 'terraform': ['tflint'],
@@ -47,7 +48,7 @@ let g:ale_linters = {
 			\ 'vim': ['vint'],
 			\ 'xml': ['xmllint'],
 			\ 'rst': ['alex'],
-			\ 'html': ['alex'],
+			\ 'html': ['tidy', 'alex'],
 			\ 'asciidoc': ['alex'],
 			\ 'adoc': ['alex'],
 			\ 'sh': ['shellcheck'],

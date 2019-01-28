@@ -4,7 +4,10 @@
 
 "{{{ 0. Plugins
 call plug#begin()
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'Nequo/vim-allomancer'
+Plug 'omnisharp/omnisharp-vim', {'for': 'cs' }
 Plug 'hashivim/vim-vagrant', { 'for': 'ruby' }
 Plug 'hashivim/vim-packer'
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
@@ -188,6 +191,8 @@ let g:fzf_colors =
 
 augroup langs
 	au!
+	autocmd FileType html runtime! languages/html.vim
+	autocmd FileType css runtime! languages/css.vim
 	autocmd FileType python runtime! languages/python.vim
 	autocmd FileType yaml runtime! languages/yaml.vim
 	autocmd FileType json runtime! languages/json.vim
