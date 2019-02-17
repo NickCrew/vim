@@ -12,7 +12,6 @@ Plug 'hashivim/vim-vagrant', { 'for': 'ruby' }
 Plug 'hashivim/vim-packer'
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 Plug 'tpope/vim-repeat'
-" Plug 'omnisharp/omnisharp-vim', { 'for': 'cs' }
 Plug 'gu-fan/riv.vim'
 Plug 'skywind3000/vim-preview'
 Plug 'craigemery/vim-autotag'

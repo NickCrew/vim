@@ -24,7 +24,7 @@ let g:virtualenv_auto_activate = 1
 
 """ ale
 let g:airline#extensions#ale#enabled = 1
-let g:ale_completion_enabled = 0
+let g:ale_completion_enabled = 1
 let g:ale_python_auto_pipenv = 1
 let b:ale_fixers = ['autopep8']
 let g:ale_set_quickfix = 0

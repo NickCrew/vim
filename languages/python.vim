@@ -4,6 +4,9 @@
 "   silent! python3 1
 " endif
 
+let g:ale_python_flake8_executable = 'python3'
+let g:ale_python_flake8_args = '-m flake8'
+
 " Start vim-lsp for language server
 let g:LanguageClient_autostart = 1
 
