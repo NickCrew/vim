@@ -4,6 +4,7 @@
 
 "{{{ 0. Plugins
 call plug#begin()
+Plug 'PProvost/vim-ps1', { 'for': 'ps1' }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'Nequo/vim-allomancer'
@@ -19,15 +20,15 @@ Plug 'sheerun/vim-polyglot'
 Plug 'majutsushi/tagbar', { 'on': ['TagbarToggle'] }
 Plug 'rakr/vim-one'
 Plug 'joshdick/onedark.vim'
-Plug '/usr/local/opt/fzf' 
+Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive' " Git functionality
 " Plug 'sodapopcan/vim-twiggy' " extension to fugitive
 Plug 'tpope/vim-vinegar' " file browsing
 Plug 'tpope/vim-rhubarb' " Git functionality
-Plug 'tpope/vim-commentary' 
-Plug 'airblade/vim-gitgutter' 
+Plug 'tpope/vim-commentary'
+Plug 'airblade/vim-gitgutter'
 Plug 'plytophogy/vim-virtualenv', { 'for': 'python' }
 Plug 'Konfekt/FastFold'
 Plug 'tmhedberg/SimpylFold'
@@ -56,7 +57,7 @@ filetype plugin indent on
 
 "}}}
 
-""" Runtime 
+""" Runtime
 runtime! maps/**/*.vim
 runtime! theme/**/*.vim
 
@@ -86,13 +87,13 @@ set completeopt+=preview
 
 
 """ Tabs
-set tabstop=4 softtabstop=4 noexpandtab shiftwidth=4 
+set tabstop=4 softtabstop=4 noexpandtab shiftwidth=4
 set smarttab
 
 """ Display options
 set cursorline
 set cursorcolumn
-set showmatch        " show matching parens, brackets, etc 
+set showmatch        " show matching parens, brackets, etc
 set ruler              " display current line in status bar
 set number            " real line number shown on current line
 set noshowmode
@@ -145,7 +146,7 @@ let g:netrw_liststyle=3
 let g:netrw_sort_sequence='[\/]$'
 " ignore case on sorting
 let g:netrw_sort_options='i'
-" vspilt netrw to the left window 
+" vspilt netrw to the left window
 let g:netrw_altv = 1
 " 30% of the screen for the netrw window, 70% for the file window
 let g:netrw_winsize = 20
@@ -160,7 +161,7 @@ let g:netrw_bufsettings = 'nomodifiable nomodified readonly nobuflisted nowrap n
 " let python_highlight_all=1
 set encoding=utf-8
 set guifont=Source\ Code\ Pro\ for\ Powerline:h16
-colorscheme onedark
+colorscheme gruvbox
 set termguicolors
 set background=dark
 
