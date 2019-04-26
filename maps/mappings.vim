@@ -1,22 +1,21 @@
-
+""""""""""""""""""""""""
+" General Key Mappings "
+""""""""""""""""""""""""
 let mapleader="\<space>"
 
-
-" Close location 
+" Close location pane
 noremap <leader>lc :lclose<CR>
-" Close quickfix
-noremap <leader>cc :cclose<CR>
+noremap <leader>lo :lopen<CR>
 
 """  8A. Toggles
-" F8 is set to run python code, only if the filetype is *.py
 
 noremap <leader>a :AsyncRun 
 
 " Async compile and run
-nnoremap <F6> :call Compile_and_run()<CR>
+map <F5> :call Compile_and_run()<CR>
 
 " QuickFix Window
-map <F11> :call QuickFixToggle()<CR>
+nmap <F11> :call QuickFixToggle()<CR>
 
 " Tagbar opens on right
 nmap <F7> :TagbarToggle<CR>

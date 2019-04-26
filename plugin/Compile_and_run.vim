@@ -11,7 +11,7 @@ function! Compile_and_run()
    elseif &filetype == 'cs'
 	   exec "AsyncRun! dotnet run <root>"
     elseif &filetype == 'python'
-       exec "AsyncRun! time python %"
+       exec "AsyncRun! -raw time python %"
     endif
 endfunction
 
