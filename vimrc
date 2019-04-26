@@ -61,7 +61,7 @@ filetype plugin indent on
 runtime! maps/**/*.vim
 runtime! theme/**/*.vim
 
-"{{{  3. Vim Settings
+"{{{  Vim Settings
 " set clipboard^=unnamed " yank/dd/x to system clipboard in addition to vim register
 set ttimeoutlen=2
 set undodir=~/.vim/undo
@@ -122,6 +122,89 @@ set showbreak=\\\
 
 "}}}
 
+" {{{ Plugin Settings
+
+""""" Terraform 
+let g:terraform_align = 1
+let g:terraform_fmt_on_save = 1
+
+""" vim-autotag
+let g:autotagTagsFile="tags"
+let g:autotagCtagsCmd="ctags -R --append --exclude=.git --exclude=.venv --fields=+nS ."
+
+""" vim-repeat
+" Allows . to repeat non-native mappings
+silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
+
+""" Tagbar
+let g:tagbar_width = 42
+let g:tagbar_autofocus = 0
+
+""" Twiggy
+" let g:twiggy_group_locals_by_slash = 0
+" let g:twiggy_local_branch_sort = 'mru'
+" let g:twiggy_remote_branch_sort = 'date'
+
+""" VirtualEnv
+let g:virtualenv_auto_activate = 1
+
+" {{{ ale
+let g:airline#extensions#ale#enabled = 1
+let g:ale_completion_enabled = 1
+let g:ale_python_auto_pipenv = 1
+let b:ale_fixers = ['autopep8']
+let g:ale_set_quickfix = 0
+let g:ale_set_loclist = 1
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" if value is 1, open list of errors in location window on save
+let g:ale_open_list = 0
+let g:ale_linters = {
+			\ 'cs': ['OmniSharp'],
+			\ 'css': ['prettier'],
+			\ 'python': ['pylint', 'flake8'],
+			\ 'dockerfile': ['hadolint'],
+			\ 'terraform': ['tflint'],
+			\ 'json': ['jsonlint'],
+			\ 'yaml': ['yamllint', 'ansible-lint'],
+			\ 'Makefile': ['checkmake'],
+			\ 'lua': ['luac'],
+			\ 'sql': ['sqlint'],
+			\ 'pgsql': ['sqlint'],
+			\ 'cpp': ['clangd'],
+			\ 'vim': ['vint'],
+			\ 'xml': ['xmllint'],
+			\ 'rst': ['alex'],
+			\ 'html': ['tidy', 'alex'],
+			\ 'asciidoc': ['alex'],
+			\ 'adoc': ['alex'],
+			\ 'sh': ['shellcheck'],
+			\ 'ruby': ['brakeman']
+			\}
+" }}}
+
+
+""" asyncomplete 
+let g:asyncomplete_remove_duplicates = 1
+let g:asyncomplete_smart_completion = 1
+let g:asyncomplete_auto_popup = 1
+" close preview window automatically after completion
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+""" asyncrun
+let g:asyncrun_open = 15
+
+""" ansible-vim
+let g:ansible_attribute_highlight = "ab"
+let g:ansible_name_highlight = "b" 
+let g:ansible_with_keywords_highlight = 'Constant'
+let g:ansible_normal_keywords_highlight = 'Constant'
+
+""" FZF
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+let g:fzf_buffers_jump = 1    " jump to existing window if possible
+let g:fzf_layout = { 'down': '~25%' }
+" }}}
+
 " {{{  Completion
 set path+=**    " search down into subfolders and provide tab completion
 set wildmenu      " display all matching files when using tab complete
@@ -171,8 +254,9 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_left_sep='' " disable the arrows
 let g:airline_right_sep=''
+" }}}
 
-" Customize fzf colors to match your color scheme
+" {{{ Customize fzf colors to match your color scheme
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
@@ -189,6 +273,7 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 " }}}
 
+" {{{ Languages
 augroup langs
 	au!
 	autocmd FileType html runtime! languages/html.vim
@@ -200,6 +285,7 @@ augroup langs
 	autocmd FileType dockerfile runtime! languages/dockerfile.vim
 	autocmd FileType cpp runtime! languages/cpp.vim
 augroup END
+" }}}
 
 " Changes the window-local current directory to be the same as current file
 autocmd BufEnter * silent! lcd %:p:h
