@@ -4,11 +4,14 @@
 
 "{{{ 0. Plugins
 call plug#begin()
+Plug 'danilo-augusto/vim-afterglow'
+Plug 'connorholyday/vim-snazzy'
 Plug 'PProvost/vim-ps1', { 'for': 'ps1' }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'Nequo/vim-allomancer'
 Plug 'omnisharp/omnisharp-vim', {'for': 'cs' }
+Plug 'jremmen/vim-ripgrep'
 Plug 'hashivim/vim-vagrant', { 'for': 'ruby' }
 Plug 'hashivim/vim-packer'
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
@@ -81,7 +84,7 @@ set tags=tags;/
 
 """ Omnicompletion
 set completeopt-=i " do not scan included files
-set completeopt+=preview
+set completeopt+=preview,menuone,noinsert,noselect
 "set omnifunc=syntaxcomplete#Complete
 
 
@@ -148,9 +151,10 @@ let g:tagbar_autofocus = 0
 """ VirtualEnv
 let g:virtualenv_auto_activate = 1
 
+
 " {{{ ale
 let g:airline#extensions#ale#enabled = 1
-let g:ale_completion_enabled = 1
+let g:ale_completion_enabled = 0
 let g:ale_python_auto_pipenv = 1
 let b:ale_fixers = ['autopep8']
 let g:ale_set_quickfix = 0
@@ -160,8 +164,8 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_open_list = 0
 let g:ale_linters = {
 			\ 'cs': ['OmniSharp'],
-			\ 'css': ['prettier'],
 			\ 'python': ['pylint', 'flake8'],
+			\ 'css': ['prettier'],
 			\ 'dockerfile': ['hadolint'],
 			\ 'terraform': ['tflint'],
 			\ 'json': ['jsonlint'],
@@ -170,7 +174,6 @@ let g:ale_linters = {
 			\ 'lua': ['luac'],
 			\ 'sql': ['sqlint'],
 			\ 'pgsql': ['sqlint'],
-			\ 'cpp': ['clangd'],
 			\ 'vim': ['vint'],
 			\ 'xml': ['xmllint'],
 			\ 'rst': ['alex'],
@@ -243,13 +246,14 @@ let g:netrw_bufsettings = 'nomodifiable nomodified readonly nobuflisted nowrap n
 
 " let python_highlight_all=1
 set encoding=utf-8
-set guifont=Source\ Code\ Pro\ for\ Powerline:h16
+" set guifont=Source\ Code\ Pro\ for\ Powerline:h16
+set guifont=Fira\ Mono\ Medium\ for\ Powerline:h15
 colorscheme gruvbox
-set termguicolors
+set termguicolors  " use true color
 set background=dark
 
 " airline settings
-let g:airline_theme='onedark'
+let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_left_sep='' " disable the arrows
