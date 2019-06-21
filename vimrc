@@ -4,6 +4,7 @@
 
 "{{{ 0. Plugins
 call plug#begin()
+Plug 'jacoborus/tender.vim'
 Plug 'danilo-augusto/vim-afterglow'
 Plug 'connorholyday/vim-snazzy'
 Plug 'PProvost/vim-ps1', { 'for': 'ps1' }
@@ -248,7 +249,7 @@ let g:netrw_bufsettings = 'nomodifiable nomodified readonly nobuflisted nowrap n
 set encoding=utf-8
 " set guifont=Source\ Code\ Pro\ for\ Powerline:h16
 set guifont=Fira\ Mono\ Medium\ for\ Powerline:h15
-colorscheme gruvbox
+colorscheme tender
 set termguicolors  " use true color
 set background=dark
 

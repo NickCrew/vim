@@ -6,6 +6,8 @@ let mapleader="\<space>"
 " Close location pane
 noremap <leader>lc :lclose<CR>
 noremap <leader>lo :lopen<CR>
+noremap <leader>cc :cclose<CR>
+noremap <leader>co :copen<CR>
 
 """  8A. Toggles
 
