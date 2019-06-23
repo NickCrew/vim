@@ -1,59 +1,64 @@
 """"""""""""""""""""""""""""""
-""""" Nicholas Ferguson 2018
+""""" Nicholas Ferguson 2019
 """"""""""""""""""""""""""""""
 
 "{{{ 0. Plugins
 call plug#begin()
-Plug 'jacoborus/tender.vim'
-Plug 'danilo-augusto/vim-afterglow'
-Plug 'connorholyday/vim-snazzy'
-Plug 'PProvost/vim-ps1', { 'for': 'ps1' }
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug 'othree/html5.vim', { 'for': 'html' }
-Plug 'Nequo/vim-allomancer'
-Plug 'omnisharp/omnisharp-vim', {'for': 'cs' }
-Plug 'jremmen/vim-ripgrep'
-Plug 'hashivim/vim-vagrant', { 'for': 'ruby' }
-Plug 'hashivim/vim-packer'
-Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
-Plug 'tpope/vim-repeat'
-Plug 'gu-fan/riv.vim'
-Plug 'skywind3000/vim-preview'
-Plug 'craigemery/vim-autotag'
-Plug 'sheerun/vim-polyglot'
-Plug 'majutsushi/tagbar', { 'on': ['TagbarToggle'] }
-Plug 'rakr/vim-one'
-Plug 'joshdick/onedark.vim'
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'chriskempson/base16-vim'
-Plug 'tpope/vim-fugitive' " Git functionality
-" Plug 'sodapopcan/vim-twiggy' " extension to fugitive
-Plug 'tpope/vim-vinegar' " file browsing
-Plug 'tpope/vim-rhubarb' " Git functionality
-Plug 'tpope/vim-commentary'
-Plug 'airblade/vim-gitgutter'
-Plug 'plytophogy/vim-virtualenv', { 'for': 'python' }
-Plug 'Konfekt/FastFold'
-Plug 'tmhedberg/SimpylFold'
-Plug 'pearofducks/ansible-vim', { 'for': ['yaml', 'yml'] }
-Plug 'unblevable/quick-scope'	" highlight the next instance of chars for f,F,t,T movement
-Plug 'ervandew/supertab'
-Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
-Plug 'rizzatti/dash.vim', { 'on': ['Dash'] }
-Plug 'aserebryakov/vim-todo-lists', { 'for': 'todo' }
-Plug 'mbbill/undotree'
-Plug 'elzr/vim-json', { 'for': 'json' }
+" Colorschemes and appearance plugins
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'jacoborus/tender.vim'
+Plug 'rakr/vim-one'
+Plug 'joshdick/onedark.vim'
+Plug 'connorholyday/vim-snazzy'
+Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
+Plug 'danilo-augusto/vim-afterglow'
+Plug 'Nequo/vim-allomancer'
+" Source Control
+Plug 'mhinz/vim-signify'  " Show changes in gutter
+Plug 'tpope/vim-fugitive' " Git functionality
+" Plug 'sodapopcan/vim-twiggy' " extension to fugitive
+Plug 'tpope/vim-rhubarb' " Git functionality
+Plug 'mbbill/undotree'  " Tree-style undo and redo history
+" File Search and Browse
+Plug '/usr/local/opt/fzf'
+Plug 'jremmen/vim-ripgrep'
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-vinegar' " file browsing
+" In-File Navigation and Tags
+Plug 'craigemery/vim-autotag'
+Plug 'majutsushi/tagbar', { 'on': ['TagbarToggle'] }
+Plug 'unblevable/quick-scope'	" highlight the next instance of chars for f,F,t,T movement
+" User Interface Optimizations
+Plug 'skywind3000/vim-preview'
+Plug 'tpope/vim-commentary'
+Plug 'Konfekt/FastFold'
+Plug 'tmhedberg/SimpylFold'
+Plug 'ervandew/supertab'
+" Documentation and Note Taking
+Plug 'aserebryakov/vim-todo-lists', { 'for': 'todo' }
+Plug 'gu-fan/riv.vim'
+Plug 'rizzatti/dash.vim', { 'on': ['Dash'] }
+" Formatting
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
+" Language Support - polyglot covers most language now
+" Plug 'PProvost/vim-ps1', { 'for': 'ps1' }
+" Plug 'othree/html5.vim', { 'for': 'html' }
+" Plug 'pearofducks/ansible-vim', { 'for': ['yaml', 'yml'] }
+" Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
+Plug 'sheerun/vim-polyglot'
+" Code Intelligence
+Plug 'omnisharp/omnisharp-vim', {'for': 'cs' }
+Plug 'plytophogy/vim-virtualenv', { 'for': 'python' }
 Plug 'prabirshrestha/vim-lsp', { 'for': ['python', 'cs', 'dockerfile', 'cpp'] }
 Plug 'prabirshrestha/asyncomplete.vim', { 'for': ['python', 'cs', 'dockerfile', 'cpp'] }
 Plug 'prabirshrestha/asyncomplete-lsp.vim', { 'for': ['python', 'cs', 'dockerfile', 'cpp'] }
 Plug 'prabirshrestha/async.vim'
 Plug 'skywind3000/asyncrun.vim', { 'for': ['python', 'cs', 'cpp'] }
 Plug 'w0rp/ale'
-"Plug 'w0rp/ale', { 'for': ['python', 'cs', 'dockerfile', 'terraform', 'json', 'yaml', 'yml', 'Makefile', 'lua', 'sql', 'pgsql', 'cpp', 'xml', 'rst', 'html', 'asciidoc', 'adoc', 'bash', 'sh', 'awk', 'ruby', 'rb', 'vim'] }
+" Plug 'w0rp/ale', { 'for': ['python', 'cs', 'dockerfile', 'terraform', 'json', 'yaml', 'yml', 'Makefile', 'lua', 'sql', 'pgsql', 'cpp', 'xml', 'rst', 'html', 'asciidoc', 'adoc', 'bash', 'sh', 'awk', 'ruby', 'rb', 'vim'] }
 call plug#end()
 syntax on
 filetype plugin indent on
@@ -91,6 +96,7 @@ set completeopt+=preview,menuone,noinsert,noselect
 
 
 """ Tabs
+" settings applied in languages/ will override
 set tabstop=4 softtabstop=4 noexpandtab shiftwidth=4
 set smarttab
 
@@ -207,6 +213,10 @@ let g:ansible_normal_keywords_highlight = 'Constant'
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_buffers_jump = 1    " jump to existing window if possible
 let g:fzf_layout = { 'down': '~25%' }
+
+""" Signify
+let g:signify_vcs_list = [ 'git', 'perforce' ]
+
 " }}}
 
 " {{{  Completion
@@ -219,6 +229,7 @@ set wildignore+=.DS_Store,.git,.hg,.svn
 set wildignore+=*~,*.swp,*.tmp
 set wildignorecase
 set smartcase      " ignore case unless specifically began with a capital
+set wildchar=<Tab> wildmenu wildmode=full  " use tab completion in command mode
 " }}}
 
 " {{{  netrw
@@ -243,7 +254,7 @@ let g:netrw_browse_split = 4
 let g:netrw_bufsettings = 'nomodifiable nomodified readonly nobuflisted nowrap number'
 " }}}
 
-" {{{  Colors
+" {{{  Colors and Appearance
 
 " let python_highlight_all=1
 set encoding=utf-8
@@ -252,6 +263,7 @@ set guifont=Fira\ Mono\ Medium\ for\ Powerline:h15
 colorscheme tender
 set termguicolors  " use true color
 set background=dark
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1  " needed for correct colors in iterm, plus correct gutter symbols from linter and such
 
 " airline settings
 let g:airline_theme='gruvbox'

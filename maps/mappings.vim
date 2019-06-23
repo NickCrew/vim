@@ -1,23 +1,20 @@
-""""""""""""""""""""""""
-" General Key Mappings "
-""""""""""""""""""""""""
+""""""""""""""""""""
+""" All Key Mappings
+""""""""""""""""""""
 let mapleader="\<space>"
 
-" Close location pane
-noremap <leader>lc :lclose<CR>
-noremap <leader>lo :lopen<CR>
-noremap <leader>cc :cclose<CR>
-noremap <leader>co :copen<CR>
-
-"""  8A. Toggles
-
-noremap <leader>a :AsyncRun 
+" Reload .vimrc
+cmap src source $MYVIMRC 
 
 " Async compile and run
 map <F5> :call Compile_and_run()<CR>
+" Call AsyncRun with custom parameters
+noremap <leader>a :AsyncRun 
 
-" QuickFix Window
-nmap <F11> :call QuickFixToggle()<CR>
+
+""""""""""""""""""
+""" Toggle States
+""""""""""""""""""
 
 " Tagbar opens on right
 nmap <F7> :TagbarToggle<CR>
@@ -25,53 +22,27 @@ nmap <F7> :TagbarToggle<CR>
 " Remove formatting when pasting text
 set pastetoggle=<F2>  
 
-" Open 30% explorer window on left side
+" Open 30% file explorer window on left side
 noremap <silent><F4> :Vexplore<CR>
 
 " Toggle the undo tree 
 noremap <silent> <F3> :UndotreeToggle<CR>
 
-" Search Dash.app for word under cursor, current filetype
-noremap <leader>d :Dash<CR>
+" QuickFix and Preview Windows
+nmap <F11> :call QuickFixToggle()<CR>
+" Open and Close
+noremap <leader>lc :lclose<CR>
+noremap <leader>lo :lopen<CR>
+noremap <leader>cc :cclose<CR>
+noremap <leader>co :copen<CR>
 
-" Search Dash.app for word under cursor, globally
-noremap <leader>D :Dash!<CR>
-
-noremap <leader>n :bnext<CR> 
-noremap <leader>b :bprev<CR>
-
-
-""" 8B. FZF Search Mappings
-
-"  FZF Standard Search
-noremap <leader>F :FZF<CR>
-
-" FZF Buffer Search
-noremap <leader>B :Buffers<CR>
-
-" FZF Git Files Search
-noremap <leader>G :GFiles<CR>
-
-" FZF Ripgrep Search
-noremap <leader>R :Rg<CR>
-
-" FZF Search Lines in Current Buffer
-noremap <leader>BL :BLines<CR>
-
-" FZF Search Lines in loaded buffers
-noremap <leader>L :Lines<CR> 
-
-" FZF Search Windows
-noremap <leader>W :Windows<CR>
+" Open a terminal
+nnoremap <leader>tt :terminal<CR>
 
 
-" Buffer Navigation
-noremap <leader><tab> :b#<CR>
-nmap <F9> :bprev<CR>
-nmap <F10> :next<CR>
-
-" Reload .vimrc
-cmap src source $MYVIMRC 
+"""""""""""""""""""""
+""" Text Manipulation
+"""""""""""""""""""""
 
 " Write as super user
 cmap w!! w !sudo tee % > /dev/null
@@ -131,7 +102,12 @@ nnoremap <Leader>html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 " Complete current line 
 inoremap <C-c> <C-x><C-l>
 
-" Pane and tab Navigation
+
+""""""""""""""
+""" Navigation
+""""""""""""""
+
+" Switch Panes and Tabs
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
@@ -140,9 +116,6 @@ map <C-W>z :tab split<CR>
 
 " Switch to previously accessed split
 map <C-p> <C-W><C-p>
-
-" Open a terminal
-nnoremap <leader>tt :terminal<CR>
 
 " Resize splits with Shift+Arrows
 noremap <silent> <s-left> :vertical resize -3<CR>
@@ -156,4 +129,73 @@ map <leader>es :sp %%
 map <leader>ev :vsp %%
 map <leader>et :tabe %%
 
+
+"""""""""""""""""""
+""" Buffer Controls
+"""""""""""""""""""
+
+" Switch to last accessed buffer
+noremap <leader><tab> :b#<CR>
+
+" Mappings to access buffers (don't use "\p" because a
+" delay before pressing "p" would accidentally paste).
+" \l       : list buffers
+" \b \f \g : go back/forward/last-used
+" \1 \2 \3 : go to buffer 1/2/3 etc
+nnoremap <Leader>l :ls<CR>
+nnoremap <Leader>b :bp<CR>
+nnoremap <Leader>f :bn<CR>
+nnoremap <Leader>g :e#<CR>
+nnoremap <Leader>1 :1b<CR>
+nnoremap <Leader>2 :2b<CR>
+nnoremap <Leader>3 :3b<CR>
+nnoremap <Leader>4 :4b<CR>
+nnoremap <Leader>5 :5b<CR>
+nnoremap <Leader>6 :6b<CR>
+nnoremap <Leader>7 :7b<CR>
+nnoremap <Leader>8 :8b<CR>
+nnoremap <Leader>9 :9b<CR>
+nnoremap <Leader>0 :10b<CR>
+
+let c = 1
+while c <= 99
+  execute "nnoremap " . c . "gb :" . c . "b\<CR>"
+  let c += 1
+endwhile
+
+
+""""""""""""""""
+""" FZF Control
+""""""""""""""""
+
+"  FZF Standard Search
+noremap <leader>F :FZF<CR>
+
+" FZF Buffer Search
+noremap <leader>B :Buffers<CR>
+
+" FZF Git Files Search
+noremap <leader>G :GFiles<CR>
+
+" FZF Ripgrep Search
+noremap <leader>R :Rg<CR>
+
+" FZF Search Lines in Current Buffer
+noremap <leader>BL :BLines<CR>
+
+" FZF Search Lines in loaded buffers
+noremap <leader>L :Lines<CR> 
+
+" FZF Search Windows
+noremap <leader>W :Windows<CR>
+
+
+""""""""""""""""""""
+""" External Progams
+""""""""""""""""""""
+
+" Search Dash.app for word under cursor, current filetype
+noremap <leader>d :Dash<CR>
+" Search Dash.app for word under cursor, globally
+noremap <leader>D :Dash!<CR>
 
