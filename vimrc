@@ -17,9 +17,9 @@ Plug 'danilo-augusto/vim-afterglow'
 Plug 'Nequo/vim-allomancer'
 " Source Control
 Plug 'mhinz/vim-signify'  " Show changes in gutter
-Plug 'tpope/vim-fugitive' " Git functionality
+" Plug 'tpope/vim-fugitive' " Git functionality
 " Plug 'sodapopcan/vim-twiggy' " extension to fugitive
-Plug 'tpope/vim-rhubarb' " Git functionality
+" Plug 'tpope/vim-rhubarb' " Git functionality
 Plug 'mbbill/undotree'  " Tree-style undo and redo history
 " File Search and Browse
 Plug '/usr/local/opt/fzf'
@@ -35,14 +35,14 @@ Plug 'skywind3000/vim-preview'
 Plug 'tpope/vim-commentary'
 Plug 'Konfekt/FastFold'
 Plug 'tmhedberg/SimpylFold'
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 " Documentation and Note Taking
 Plug 'aserebryakov/vim-todo-lists', { 'for': 'todo' }
 Plug 'gu-fan/riv.vim'
 Plug 'rizzatti/dash.vim', { 'on': ['Dash'] }
 " Formatting
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
+" Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+" Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 " Language Support - polyglot covers most language now
 " Plug 'PProvost/vim-ps1', { 'for': 'ps1' }
 " Plug 'othree/html5.vim', { 'for': 'html' }
@@ -53,7 +53,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'omnisharp/omnisharp-vim', {'for': 'cs' }
 Plug 'plytophogy/vim-virtualenv', { 'for': 'python' }
 Plug 'prabirshrestha/vim-lsp', { 'for': ['python', 'cs', 'dockerfile', 'cpp'] }
-Plug 'prabirshrestha/asyncomplete.vim', { 'for': ['python', 'cs', 'dockerfile', 'cpp'] }
+Plug 'prabirshrestha/asyncomplete.vim', { 'for': [ 'python', 'cs', 'dockerfile', 'cpp'] }
 Plug 'prabirshrestha/asyncomplete-lsp.vim', { 'for': ['python', 'cs', 'dockerfile', 'cpp'] }
 Plug 'prabirshrestha/async.vim'
 Plug 'skywind3000/asyncrun.vim', { 'for': ['python', 'cs', 'cpp'] }
@@ -88,10 +88,6 @@ set previewheight=50
 set autochdir
 set tags=tags;/
 
-""" Omnicompletion
-set completeopt-=i " do not scan included files
-set completeopt+=preview,menuone,noinsert,noselect
-"set omnifunc=syntaxcomplete#Complete
 
 
 
@@ -135,16 +131,16 @@ set showbreak=\\\
 " {{{ Plugin Settings
 
 """"" Terraform 
-let g:terraform_align = 1
-let g:terraform_fmt_on_save = 1
+"let g:terraform_align = 1
+"let g:terraform_fmt_on_save = 1
 
 """ vim-autotag
-let g:autotagTagsFile="tags"
-let g:autotagCtagsCmd="ctags -R --append --exclude=.git --exclude=.venv --fields=+nS ."
+let g:autotagTagsFile='tags'
+let g:autotagCtagsCmd='ctags -R --append --exclude=.git --exclude=.venv --fields=+nS .'
 
 """ vim-repeat
 " Allows . to repeat non-native mappings
-silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
+" silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 
 """ Tagbar
 let g:tagbar_width = 42
@@ -159,6 +155,7 @@ let g:tagbar_autofocus = 0
 let g:virtualenv_auto_activate = 1
 
 
+
 " {{{ ale
 let g:airline#extensions#ale#enabled = 1
 let g:ale_completion_enabled = 0
@@ -171,7 +168,7 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_open_list = 0
 let g:ale_linters = {
 			\ 'cs': ['OmniSharp'],
-			\ 'python': ['pylint', 'flake8'],
+			\ 'python': ['flake8', 'pylint'],
 			\ 'css': ['prettier'],
 			\ 'dockerfile': ['hadolint'],
 			\ 'terraform': ['tflint'],
@@ -204,10 +201,10 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 let g:asyncrun_open = 15
 
 """ ansible-vim
-let g:ansible_attribute_highlight = "ab"
-let g:ansible_name_highlight = "b" 
-let g:ansible_with_keywords_highlight = 'Constant'
-let g:ansible_normal_keywords_highlight = 'Constant'
+" let g:ansible_attribute_highlight = "ab"
+" let g:ansible_name_highlight = "b" 
+" let g:ansible_with_keywords_highlight = 'Constant'
+" let g:ansible_normal_keywords_highlight = 'Constant'
 
 """ FZF
 let g:fzf_history_dir = '~/.local/share/fzf-history'
@@ -220,6 +217,12 @@ let g:signify_vcs_list = [ 'git', 'perforce' ]
 " }}}
 
 " {{{  Completion
+
+""" Omnicompletion
+set completeopt-=i " do not scan included files
+set completeopt+=preview,menuone,noinsert,noselect
+" set omnifunc=syntaxcomplete#Complete
+
 set path+=**    " search down into subfolders and provide tab completion
 set wildmenu      " display all matching files when using tab complete
 set wildmode=longest,list,full
@@ -256,17 +259,17 @@ let g:netrw_bufsettings = 'nomodifiable nomodified readonly nobuflisted nowrap n
 
 " {{{  Colors and Appearance
 
-" let python_highlight_all=1
-set encoding=utf-8
+let python_highlight_all=1
+" set encoding=utf-8
 " set guifont=Source\ Code\ Pro\ for\ Powerline:h16
 set guifont=Fira\ Mono\ Medium\ for\ Powerline:h15
 colorscheme tender
 set termguicolors  " use true color
 set background=dark
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1  " needed for correct colors in iterm, plus correct gutter symbols from linter and such
+" let $NVIM_TUI_ENABLE_TRUE_COLOR=1  " needed for correct colors in iterm, plus correct gutter symbols from linter and such
 
 " airline settings
-let g:airline_theme='gruvbox'
+let g:airline_theme='tender'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_left_sep='' " disable the arrows
@@ -308,4 +311,7 @@ augroup END
 autocmd BufEnter * silent! lcd %:p:h
 
 
-"
+" Settings for MacVim GUI Only
+if has('gui_macvim')
+	source ~/.vim/mvimrc
+endif
