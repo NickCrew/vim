@@ -1,7 +1,6 @@
 """"""""""""""""""""""""""""""
 """"" Nicholas Ferguson 2019
 """"""""""""""""""""""""""""""
-
 "{{{ 0. Plugins
 call plug#begin()
 " Colorschemes and appearance plugins
@@ -35,7 +34,7 @@ Plug 'skywind3000/vim-preview'
 Plug 'tpope/vim-commentary'
 Plug 'Konfekt/FastFold'
 Plug 'tmhedberg/SimpylFold'
-" Plug 'ervandew/supertab'
+Plug 'ervandew/supertab'
 " Documentation and Note Taking
 Plug 'aserebryakov/vim-todo-lists', { 'for': 'todo' }
 Plug 'gu-fan/riv.vim'
@@ -156,7 +155,6 @@ let g:virtualenv_auto_activate = 1
 
 
 
-" {{{ ale
 let g:airline#extensions#ale#enabled = 1
 let g:ale_completion_enabled = 0
 let g:ale_python_auto_pipenv = 1
@@ -187,7 +185,6 @@ let g:ale_linters = {
 			\ 'sh': ['shellcheck'],
 			\ 'ruby': ['brakeman']
 			\}
-" }}}
 
 
 """ asyncomplete 
@@ -260,7 +257,7 @@ let g:netrw_bufsettings = 'nomodifiable nomodified readonly nobuflisted nowrap n
 " {{{  Colors and Appearance
 
 let python_highlight_all=1
-" set encoding=utf-8
+set encoding=utf-8
 " set guifont=Source\ Code\ Pro\ for\ Powerline:h16
 set guifont=Fira\ Mono\ Medium\ for\ Powerline:h15
 colorscheme tender
