@@ -309,6 +309,6 @@ autocmd BufEnter * silent! lcd %:p:h
 
 
 " Settings for MacVim GUI Only
-if has('gui_macvim')
-	source ~/.vim/mvimrc
-endif
+" if has('gui_macvim')
+" 	source ~/.vim/mvimrc
+" endif
