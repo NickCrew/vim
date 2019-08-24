@@ -2,8 +2,9 @@
 """"" Nicholas Ferguson 2019
 """"""""""""""""""""""""""""""
 "{{{ 0. Plugins
+
 call plug#begin()
-" Colorschemes and appearance plugins
+"""" Colorschemes and appearance plugins
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jacoborus/tender.vim'
@@ -14,32 +15,33 @@ Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
 Plug 'danilo-augusto/vim-afterglow'
 Plug 'Nequo/vim-allomancer'
-" Source Control
+"""" Source Control
 Plug 'mhinz/vim-signify'  " Show changes in gutter
 " Plug 'tpope/vim-fugitive' " Git functionality
 " Plug 'sodapopcan/vim-twiggy' " extension to fugitive
 " Plug 'tpope/vim-rhubarb' " Git functionality
 Plug 'mbbill/undotree'  " Tree-style undo and redo history
-" File Search and Browse
+"""" File Search and Browse
 Plug '/usr/local/opt/fzf'
 Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-vinegar' " file browsing
-" In-File Navigation and Tags
-Plug 'craigemery/vim-autotag'
-Plug 'majutsushi/tagbar', { 'on': ['TagbarToggle'] }
+"""" In-File Navigation and Tags
+"Plug 'craigemery/vim-autotag'
+Plug 'ludovicchabant/vim-gutentags'
+"Plug 'majutsushi/tagbar', { 'on': ['TagbarToggle'] }
 Plug 'unblevable/quick-scope'	" highlight the next instance of chars for f,F,t,T movement
-" User Interface Optimizations
+"""" User Interface Optimizations
 Plug 'skywind3000/vim-preview'
 Plug 'tpope/vim-commentary'
 Plug 'Konfekt/FastFold'
 Plug 'tmhedberg/SimpylFold'
 Plug 'ervandew/supertab'
-" Documentation and Note Taking
+"""" Documentation and Note Taking
 Plug 'aserebryakov/vim-todo-lists', { 'for': 'todo' }
 Plug 'gu-fan/riv.vim'
 Plug 'rizzatti/dash.vim', { 'on': ['Dash'] }
-" Formatting
+"""" Formatting
 " Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 " Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 " Language Support - polyglot covers most language now
@@ -47,27 +49,24 @@ Plug 'rizzatti/dash.vim', { 'on': ['Dash'] }
 " Plug 'othree/html5.vim', { 'for': 'html' }
 " Plug 'pearofducks/ansible-vim', { 'for': ['yaml', 'yml'] }
 " Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
-Plug 'sheerun/vim-polyglot'
-" Code Intelligence
-Plug 'omnisharp/omnisharp-vim', {'for': 'cs' }
+"Plug 'sheerun/vim-polyglot'
+"""" Code Intelligence
+"Plug 'omnisharp/omnisharp-vim', {'for': 'cs' }
 Plug 'plytophogy/vim-virtualenv', { 'for': 'python' }
-Plug 'prabirshrestha/vim-lsp', { 'for': ['python', 'cs', 'dockerfile', 'cpp'] }
-Plug 'prabirshrestha/asyncomplete.vim', { 'for': [ 'python', 'cs', 'dockerfile', 'cpp'] }
-Plug 'prabirshrestha/asyncomplete-lsp.vim', { 'for': ['python', 'cs', 'dockerfile', 'cpp'] }
+"Plug 'prabirshrestha/vim-lsp', { 'for': ['python', 'cs', 'dockerfile', 'cpp'] }
+"Plug 'prabirshrestha/asyncomplete.vim', { 'for': [ 'python', 'cs', 'dockerfile', 'cpp'] }
+"Plug 'prabirshrestha/asyncomplete-lsp.vim', { 'for': ['python', 'cs', 'dockerfile', 'cpp'] }
 Plug 'prabirshrestha/async.vim'
 Plug 'skywind3000/asyncrun.vim', { 'for': ['python', 'cs', 'cpp'] }
-Plug 'w0rp/ale'
-" Plug 'w0rp/ale', { 'for': ['python', 'cs', 'dockerfile', 'terraform', 'json', 'yaml', 'yml', 'Makefile', 'lua', 'sql', 'pgsql', 'cpp', 'xml', 'rst', 'html', 'asciidoc', 'adoc', 'bash', 'sh', 'awk', 'ruby', 'rb', 'vim'] }
+""Plug 'w0rp/ale'
+"Plug 'w0rp/ale', { 'for': ['python', 'cs', 'dockerfile', 'terraform', 'json', 'yaml', 'yml', 'Makefile', 'lua', 'sql', 'pgsql', 'cpp', 'xml', 'rst', 'html', 'asciidoc', 'adoc', 'bash', 'sh', 'awk', 'ruby', 'rb', 'vim'] }
+"Plug 'neoclide/coc.vim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 call plug#end()
-syntax on
-filetype plugin indent on
-
-
 "}}}
 
-""" Runtime
-runtime! maps/**/*.vim
-runtime! theme/**/*.vim
+syntax on
+filetype plugin indent on
 
 "{{{  Vim Settings
 " set clipboard^=unnamed " yank/dd/x to system clipboard in addition to vim register
@@ -86,8 +85,6 @@ set previewheight=50
 " ctags optimizations
 set autochdir
 set tags=tags;/
-
-
 
 
 """ Tabs
@@ -119,12 +116,10 @@ set splitbelow       " always open splits below current pane
 set splitright       " always open splits to the right of current pane
 " set winminwidth=0      " minimum width of pane
 
-
 """ Text Organization
 set foldmethod=marker
 set breakindent
 set showbreak=\\\
-
 "}}}
 
 " {{{ Plugin Settings
@@ -134,8 +129,8 @@ set showbreak=\\\
 "let g:terraform_fmt_on_save = 1
 
 """ vim-autotag
-let g:autotagTagsFile='tags'
-let g:autotagCtagsCmd='ctags -R --append --exclude=.git --exclude=.venv --fields=+nS .'
+"let g:autotagTagsFile='tags'
+"let g:autotagCtagsCmd='ctags -R --append --exclude=.git --exclude=.venv --fields=+nS .'
 
 """ vim-repeat
 " Allows . to repeat non-native mappings
@@ -152,8 +147,6 @@ let g:tagbar_autofocus = 0
 
 """ VirtualEnv
 let g:virtualenv_auto_activate = 1
-
-
 
 let g:airline#extensions#ale#enabled = 1
 let g:ale_completion_enabled = 0
@@ -185,7 +178,6 @@ let g:ale_linters = {
 			\ 'sh': ['shellcheck'],
 			\ 'ruby': ['brakeman']
 			\}
-
 
 """ asyncomplete 
 let g:asyncomplete_remove_duplicates = 1
@@ -254,9 +246,219 @@ let g:netrw_browse_split = 4
 let g:netrw_bufsettings = 'nomodifiable nomodified readonly nobuflisted nowrap number'
 " }}}
 
+" {{{ Mappings
+
+""""""""""""""""""""
+""" All Key Mappings
+""""""""""""""""""""
+let mapleader="\<space>"
+
+" Reload .vimrc
+cmap src source $MYVIMRC 
+
+nmap <silent> <leader>lp <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Async compile and run
+map <F5> :call Compile_and_run()<CR>
+" Call AsyncRun with custom parameters
+noremap <leader>a :AsyncRun 
+
+
+""""""""""""""""""
+""" Toggle States
+""""""""""""""""""
+
+" Tagbar opens on right
+nmap <F7> :TagbarToggle<CR>
+
+" Remove formatting when pasting text
+set pastetoggle=<F2>  
+
+" Open 30% file explorer window on left side
+noremap <silent><F4> :Vexplore<CR>
+
+" Toggle the undo tree 
+noremap <silent> <F3> :UndotreeToggle<CR>
+
+" QuickFix and Preview Windows
+nmap <F11> :call QuickFixToggle()<CR>
+" Open and Close
+noremap <leader>lc :lclose<CR>
+noremap <leader>lo :lopen<CR>
+noremap <leader>cc :cclose<CR>
+noremap <leader>co :copen<CR>
+
+" Open a terminal
+nnoremap <leader>tt :terminal<CR>
+
+
+"""""""""""""""""""""
+""" Text Manipulation
+"""""""""""""""""""""
+
+" Write as super user
+cmap w!! w !sudo tee % > /dev/null
+
+" Show next matched string at center of screen
+nnoremap n nzz
+nnoremap N Nzz
+
+" Replace word under cursor, . to repeat on next instance of word
+noremap <Leader>x *``cgn
+noremap <Leader>X #``cgN
+
+" Show registers
+noremap <Leader>r :reg<CR>
+
+" Turn off highlighting until next search
+noremap <Leader>, :noh<CR>
+
+" Sort selected visual block 
+vnoremap <leader>s :sort<CR>
+
+" Yank entire buffer
+nnoremap gy :%y+<CR>
+
+" Copy current line sans leading/trailing whitespace
+nnoremap gy m`^yg_``
+
+" copy paste from system clipboard
+vnoremap <leader>c ::w !pbcopy<CR><CR>
+nnoremap <leader>p "+p
+vnoremap <leader>y "+y
+vnoremap <leader>yy "+yy
+
+" Delete permanently / void register
+nnoremap dP "_d
+
+" Paste the last yank / from 0 register
+nnoremap yp "0p
+nnoremap yP "0P
+
+" Split line
+nnoremap gK f<space>r<CR>
+
+" Insert new line above or below, return to origin line
+nnoremap <ENTER> o<ESC>k
+nnoremap <leader><ENTER> O<ESC>j
+
+" Remove trailing whitespaces from entire document
+command! RemWhitespace :%s/\s\+$//<cr>:let @/=''<CR>
+
+" Show trailing white spaces
+nnoremap <leader>w :set list!<CR>
+
+" Insert blank basic html template
+nnoremap <Leader>html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
+
+" Complete current line 
+inoremap <C-c> <C-x><C-l>
+
+
+""""""""""""""
+""" Navigation
+""""""""""""""
+
+" Switch Panes and Tabs
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+map <C-W>z :tab split<CR>
+
+" Switch to previously accessed split
+map <C-p> <C-W><C-p>
+
+" Resize splits with Shift+Arrows
+noremap <silent> <s-left> :vertical resize -3<CR>
+noremap <silent> <s-right> :vertical resize +3<CR>
+noremap <silent> <s-down> :resize -3<CR>
+noremap <silent> <s-up> :resize +3<CR>
+
+" Open files quickly in the same directory as the current file
+map <leader>ew :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
+
+
+"""""""""""""""""""
+""" Buffer Controls
+"""""""""""""""""""
+
+" Switch to last accessed buffer
+noremap <leader><tab> :b#<CR>
+
+" Mappings to access buffers (don't use "\p" because a
+" delay before pressing "p" would accidentally paste).
+" \l       : list buffers
+" \b \f \g : go back/forward/last-used
+" \1 \2 \3 : go to buffer 1/2/3 etc
+nnoremap <Leader>l :ls<CR>
+nnoremap <Leader>b :bp<CR>
+nnoremap <Leader>f :bn<CR>
+nnoremap <Leader>g :e#<CR>
+nnoremap <Leader>1 :1b<CR>
+nnoremap <Leader>2 :2b<CR>
+nnoremap <Leader>3 :3b<CR>
+nnoremap <Leader>4 :4b<CR>
+nnoremap <Leader>5 :5b<CR>
+nnoremap <Leader>6 :6b<CR>
+nnoremap <Leader>7 :7b<CR>
+nnoremap <Leader>8 :8b<CR>
+nnoremap <Leader>9 :9b<CR>
+nnoremap <Leader>0 :10b<CR>
+
+let c = 1
+while c <= 99
+  execute "nnoremap " . c . "gb :" . c . "b\<CR>"
+  let c += 1
+endwhile
+
+
+""""""""""""""""
+""" FZF Control
+""""""""""""""""
+
+"  FZF Standard Search
+noremap <leader>F :FZF<CR>
+
+" FZF Buffer Search
+noremap <leader>B :Buffers<CR>
+
+" FZF Git Files Search
+noremap <leader>G :GFiles<CR>
+
+" FZF Ripgrep Search
+noremap <leader>R :Rg<CR>
+
+" FZF Search Lines in Current Buffer
+noremap <leader>BL :BLines<CR>
+
+" FZF Search Lines in loaded buffers
+noremap <leader>L :Lines<CR> 
+
+" FZF Search Windows
+noremap <leader>W :Windows<CR>
+
+
+""""""""""""""""""""
+""" External Progams
+""""""""""""""""""""
+
+" Search Dash.app for word under cursor, current filetype
+noremap <leader>d :Dash<CR>
+" Search Dash.app for word under cursor, globally
+noremap <leader>D :Dash!<CR>
+
+" }}}
+
 " {{{  Colors and Appearance
 
-let python_highlight_all=1
+"let python_highlight_all=1
 set encoding=utf-8
 " set guifont=Source\ Code\ Pro\ for\ Powerline:h16
 set guifont=Fira\ Mono\ Medium\ for\ Powerline:h15
@@ -271,6 +473,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_left_sep='' " disable the arrows
 let g:airline_right_sep=''
+let g:airline#extensions#coc#enabled = 1
 " }}}
 
 " {{{ Customize fzf colors to match your color scheme
@@ -290,23 +493,8 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 " }}}
 
-" {{{ Languages
-augroup langs
-	au!
-	autocmd FileType html runtime! languages/html.vim
-	autocmd FileType css runtime! languages/css.vim
-	autocmd FileType python runtime! languages/python.vim
-	autocmd FileType yaml runtime! languages/yaml.vim
-	autocmd FileType json runtime! languages/json.vim
-	autocmd FileType cs runtime! languages/csharp.vim
-	autocmd FileType dockerfile runtime! languages/dockerfile.vim
-	autocmd FileType cpp runtime! languages/cpp.vim
-augroup END
-" }}}
-
 " Changes the window-local current directory to be the same as current file
 autocmd BufEnter * silent! lcd %:p:h
-
 
 " Settings for MacVim GUI Only
 " if has('gui_macvim')
