@@ -128,6 +128,8 @@ set showbreak=\\\
 
 """ vimtex
 let g:Tex_Flavor='latex'
+let g:Text_ViewRule_pdf = 'preview'
+let g:Imap_DeleteEmptyPlaceHolders = 1
 "let g:vimtex_quickfix_mode = 0
 "let g:tex_conceal='abdmg'
 "set conceallevel=1
