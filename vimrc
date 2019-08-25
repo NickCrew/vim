@@ -38,6 +38,8 @@ Plug 'Konfekt/FastFold'
 Plug 'tmhedberg/SimpylFold'
 Plug 'ervandew/supertab'
 """" Documentation and Note Taking
+"Plug 'lervag/vimtex'
+Plug 'vim-latex/vim-latex'
 Plug 'aserebryakov/vim-todo-lists', { 'for': 'todo' }
 Plug 'gu-fan/riv.vim'
 Plug 'rizzatti/dash.vim', { 'on': ['Dash'] }
@@ -123,6 +125,12 @@ set showbreak=\\\
 "}}}
 
 " {{{ Plugin Settings
+
+""" vimtex
+let g:Tex_Flavor='latex'
+"let g:vimtex_quickfix_mode = 0
+"let g:tex_conceal='abdmg'
+"set conceallevel=1
 
 """"" Terraform 
 "let g:terraform_align = 1
