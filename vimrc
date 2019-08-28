@@ -30,7 +30,7 @@ Plug 'tpope/vim-vinegar' " file browsing
 """" In-File Navigation and Tags
 "Plug 'craigemery/vim-autotag'
 Plug 'ludovicchabant/vim-gutentags'
-"Plug 'majutsushi/tagbar', { 'on': ['TagbarToggle'] }
+Plug 'majutsushi/tagbar', { 'on': ['TagbarToggle'] }
 Plug 'unblevable/quick-scope'	" highlight the next instance of chars for f,F,t,T movement
 """" User Interface Optimizations
 Plug 'skywind3000/vim-preview'
@@ -39,19 +39,10 @@ Plug 'Konfekt/FastFold'
 Plug 'tmhedberg/SimpylFold'
 Plug 'ervandew/supertab'
 """" Documentation and Note Taking
-"Plug 'lervag/vimtex'
 Plug 'vim-latex/vim-latex', { 'for': 'tex' }
 Plug 'aserebryakov/vim-todo-lists', { 'for': 'todo' }
 Plug 'gu-fan/riv.vim'
 Plug 'rizzatti/dash.vim', { 'on': ['Dash'] }
-"""" Formatting
-" Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-" Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
-" Language Support - polyglot covers most language now
-" Plug 'PProvost/vim-ps1', { 'for': 'ps1' }
-" Plug 'othree/html5.vim', { 'for': 'html' }
-" Plug 'pearofducks/ansible-vim', { 'for': ['yaml', 'yml'] }
-" Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 Plug 'sheerun/vim-polyglot'
 """" Code Intelligence
 "Plug 'omnisharp/omnisharp-vim', {'for': 'cs' }
@@ -61,9 +52,6 @@ Plug 'plytophogy/vim-virtualenv', { 'for': 'python' }
 "Plug 'prabirshrestha/asyncomplete-lsp.vim', { 'for': ['python', 'cs', 'dockerfile', 'cpp'] }
 Plug 'prabirshrestha/async.vim'
 Plug 'skywind3000/asyncrun.vim', { 'for': ['python', 'cs', 'cpp'] }
-""Plug 'w0rp/ale'
-"Plug 'w0rp/ale', { 'for': ['python', 'cs', 'dockerfile', 'terraform', 'json', 'yaml', 'yml', 'Makefile', 'lua', 'sql', 'pgsql', 'cpp', 'xml', 'rst', 'html', 'asciidoc', 'adoc', 'bash', 'sh', 'awk', 'ruby', 'rb', 'vim'] }
-"Plug 'neoclide/coc.vim', {'branch': 'release'}
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 call plug#end()
 "}}}
@@ -146,53 +134,8 @@ let g:tagbar_autofocus = 0
 """ VirtualEnv
 let g:virtualenv_auto_activate = 1
 
-""" ALE
-" let g:airline#extensions#ale#enabled = 1
-" let g:ale_completion_enabled = 0
-" let g:ale_python_auto_pipenv = 1
-" let b:ale_fixers = ['autopep8']
-" let g:ale_set_quickfix = 0
-" let g:ale_set_loclist = 1
-" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-" " if value is 1, open list of errors in location window on save
-" let g:ale_open_list = 0
-" let g:ale_linters = {
-" 			\ 'cs': ['OmniSharp'],
-" 			\ 'python': ['flake8', 'pylint'],
-" 			\ 'css': ['prettier'],
-" 			\ 'dockerfile': ['hadolint'],
-" 			\ 'terraform': ['tflint'],
-" 			\ 'json': ['jsonlint'],
-" 			\ 'yaml': ['yamllint', 'ansible-lint'],
-" 			\ 'Makefile': ['checkmake'],
-" 			\ 'lua': ['luac'],
-" 			\ 'sql': ['sqlint'],
-" 			\ 'pgsql': ['sqlint'],
-" 			\ 'vim': ['vint'],
-" 			\ 'xml': ['xmllint'],
-" 			\ 'rst': ['alex'],
-" 			\ 'html': ['tidy', 'alex'],
-" 			\ 'asciidoc': ['alex'],
-" 			\ 'adoc': ['alex'],
-" 			\ 'sh': ['shellcheck'],
-" 			\ 'ruby': ['brakeman']
-" 			\}
-
-""" asyncomplete 
-let g:asyncomplete_remove_duplicates = 1
-let g:asyncomplete_smart_completion = 1
-let g:asyncomplete_auto_popup = 1
-" close preview window automatically after completion
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-
 """ asyncrun
 let g:asyncrun_open = 15
-
-""" ansible-vim
-" let g:ansible_attribute_highlight = "ab"
-" let g:ansible_name_highlight = "b" 
-" let g:ansible_with_keywords_highlight = 'Constant'
-" let g:ansible_normal_keywords_highlight = 'Constant'
 
 """ FZF
 let g:fzf_history_dir = '~/.local/share/fzf-history'
@@ -260,11 +203,10 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" Async compile and run
+" asyncrun
 map <F5> :call Compile_and_run()<CR>
-" Call AsyncRun with custom parameters
+noremap <leader>R Compile_and_run()<CR>
 noremap <leader>a :AsyncRun 
-
 
 """"""""""""""""""
 """ Toggle States
@@ -432,7 +374,7 @@ noremap <leader>B :Buffers<CR>
 noremap <leader>G :GFiles<CR>
 
 " FZF Ripgrep Search
-noremap <leader>R :Rg<CR>
+"noremap <leader>R :Rg<CR>
 
 " FZF Search Lines in Current Buffer
 noremap <leader>BL :BLines<CR>
