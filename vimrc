@@ -37,6 +37,7 @@ Plug 'ludovicchabant/vim-gutentags'		" auto generate tags
 Plug 'majutsushi/tagbar', { 'on': ['TagbarToggle'] }
 Plug 'unblevable/quick-scope'		" highlight the next instance of chars for f,F,t,T movement
 Plug 'skywind3000/vim-preview'		" preview tags, files and function signatures
+Plug 'wellle/targets.vim'
 """""""""""""""""""""""
 """" Controls
 """""""""""""""""""""""
@@ -47,6 +48,7 @@ Plug 'tpope/vim-commentary'
 """""""""""""""""""""""
 """" Language Features
 """""""""""""""""""""""
+Plug 'PProvost/vim-ps1'
 Plug 'sheerun/vim-polyglot'					" BIG language pack
 Plug 'Konfekt/FastFold'						" Automatic folding
 Plug 'tmhedberg/SimpylFold'					" python folding
@@ -303,6 +305,8 @@ let g:netrw_bufsettings = 'nomodifiable nomodified readonly nobuflisted nowrap n
 """ All Key Mappings
 """"""""""""""""""""
 let mapleader="\<space>"
+
+inoremap kj <Esc>
 
 " Reload .vimrc
 cmap src source $MYVIMRC 
