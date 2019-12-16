@@ -14,6 +14,7 @@ Plug 'rakr/vim-one'
 Plug 'joshdick/onedark.vim'
 Plug 'morhetz/gruvbox'
 Plug 'Nequo/vim-allomancer'
+Plug 'arcticicestudio/nord-vim'
 """""""""""""""""""""""
 """" Source Control
 """""""""""""""""""""""
@@ -68,6 +69,7 @@ filetype plugin indent on
 
 "{{{  Vim Settings
 " set clipboard^=unnamed " yank/dd/x to system clipboard in addition to vim register
+set clipboard=autoselectplus
 set ttimeoutlen=2
 set undodir=~/.vim/undo
 set undofile
@@ -471,25 +473,16 @@ endwhile
 """"""""""""""""
 """ FZF Control
 """"""""""""""""
-
 "  FZF Standard Search
 noremap <leader>F :FZF<CR>
-
 " FZF Buffer Search
 noremap <leader>B :Buffers<CR>
-
 " FZF Git Files Search
 noremap <leader>G :GFiles<CR>
-
-" FZF Ripgrep Search
-"noremap <leader>R :Rg<CR>
-
 " FZF Search Lines in Current Buffer
 noremap <leader>BL :BLines<CR>
-
 " FZF Search Lines in loaded buffers
 noremap <leader>L :Lines<CR> 
-
 " FZF Search Windows
 noremap <leader>W :Windows<CR>
 
@@ -511,13 +504,13 @@ noremap <leader>D :Dash!<CR>
 set encoding=utf-8
 " set guifont=Source\ Code\ Pro\ for\ Powerline:h16
 set guifont=Fira\ Mono\ Medium\ for\ Powerline:h15
-colorscheme tender
+colorscheme nord
 set termguicolors  " use true color
 set background=dark
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1  " needed for correct colors in iterm, plus correct gutter symbols from linter and such
 
 " airline settings
-let g:airline_theme='tender'
+let g:airline_theme='nord'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_left_sep='' " disable the arrows
