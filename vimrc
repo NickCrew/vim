@@ -4,9 +4,7 @@
 "{{{ 0. Plugins
 
 call plug#begin()
-"""""""""""""""""""""""
 """" Appearance plugins
-"""""""""""""""""""""""
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jacoborus/tender.vim'
@@ -15,52 +13,33 @@ Plug 'joshdick/onedark.vim'
 Plug 'morhetz/gruvbox'
 Plug 'Nequo/vim-allomancer'
 Plug 'arcticicestudio/nord-vim'
-"""""""""""""""""""""""
 """" Source Control
-"""""""""""""""""""""""
 Plug 'mhinz/vim-signify'		" Show changes in gutter
 Plug 'kshenoy/vim-signature'	" show marks in the gutter
-" Plug 'tpope/vim-fugitive'		" Git functionality
-" Plug 'sodapopcan/vim-twiggy'	" extension to fugitive
-" Plug 'tpope/vim-rhubarb'		" Git functionality
+Plug 'tpope/vim-fugitive'		" Git functionality
+Plug 'tpope/vim-rhubarb'		" Git functionality
 Plug 'mbbill/undotree'			" Tree-style undo and redo history
-"""""""""""""""""""""""
 """" Search
-"""""""""""""""""""""""
 Plug '/usr/local/opt/fzf'
 Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-vinegar'	" file browsing enhancement
-"""""""""""""""""""""""
 """" Navigation
-"""""""""""""""""""""""
 Plug 'ludovicchabant/vim-gutentags'		" auto generate tags
 Plug 'majutsushi/tagbar', { 'on': ['TagbarToggle'] }
 Plug 'unblevable/quick-scope'		" highlight the next instance of chars for f,F,t,T movement
 Plug 'skywind3000/vim-preview'		" preview tags, files and function signatures
-Plug 'wellle/targets.vim'
-"""""""""""""""""""""""
 """" Controls
-"""""""""""""""""""""""
 Plug 'tpope/vim-repeat'
 Plug 'rizzatti/dash.vim', { 'on': ['Dash'] }
 Plug 'tpope/vim-commentary'
-" Plug 'kana/vim-arpeggio'
-" Plug 'ervandew/supertab'
-" Plug 'drmingdrmer/vim-toggle-quickfix'
-"""""""""""""""""""""""
-"""" Language Features
-"""""""""""""""""""""""
-Plug 'PProvost/vim-ps1'
+"""" Languages
 Plug 'sheerun/vim-polyglot'					" BIG language pack
 Plug 'Konfekt/FastFold'						" Automatic folding
 Plug 'tmhedberg/SimpylFold'					" python folding
 Plug 'vim-latex/vim-latex', { 'for': 'tex' }
-Plug 'aserebryakov/vim-todo-lists', { 'for': 'todo' }
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-"""""""""""""""""""""""
 """" Async
-"""""""""""""""""""""""
 Plug 'prabirshrestha/async.vim'
 Plug 'skywind3000/asyncrun.vim'
 call plug#end()
@@ -311,26 +290,30 @@ inoremap kj <Esc>
 
 " Reload .vimrc
 cmap src source $MYVIMRC 
-nnoremap <C-e>s :source $MYVIMRC<CR>
 
 " asyncrun
 map <F5> :call Compile_and_run()<CR>
-nnoremap <C-e><C-r> :call Compile_and_run()<CR>
-noremap <leader>a :AsyncRun 
+nnoremap <silent><C-e><C-r> :call Compile_and_run()<CR>
+nnoremap <silent><C-e><C-a>a :AsyncRun 
+
+" Search Dash.app for word under cursor, current filetype
+nnoremap <silent><C-e>d :Dash<CR>
+" Search Dash.app for word under cursor, globally
+nnoremap <silent><C-e>D :Dash!<CR>
 
 "{{{ Toggles
 
 " Tagbar opens on right
-nmap <F7> :TagbarToggle<CR>
+nnoremap <silent> <C-e>t :TagbarToggle<CR>
 
 " Remove formatting when pasting text
 set pastetoggle=<F2>  
 
 " Open 30% file explorer window on left side
-noremap <silent><F4> :Vexplore<CR>
+nnoremap <silent><C-e>x :Vexplore<CR>
 
 " Toggle the undo tree 
-noremap <silent> <F3> :UndotreeToggle<CR>
+nmap <silent><C-e><C-u> :UndotreeToggle<CR>
 
 " Toggle quickfix
 nmap <silent><C-e>c :cclose<CR>
@@ -352,7 +335,7 @@ noremap <Leader>x *``cgn
 noremap <Leader>X #``cgN
 
 " Show registers
-noremap <Leader>r :reg<CR>
+nnoremap <silent><C-e>r :reg<CR>
 
 " Turn off highlighting until next search
 noremap <Leader>, :noh<CR>
@@ -417,11 +400,6 @@ noremap <silent> <s-right> :vertical resize +3<CR>
 noremap <silent> <s-down> :resize -3<CR>
 noremap <silent> <s-up> :resize +3<CR>
 
-" Open files quickly in the same directory as the current file
-map <leader>ew :e %%
-map <leader>es :sp %%
-map <leader>ev :vsp %%
-map <leader>et :tabe %%
 "}}}
 
 "{{{ Buffer Controls
@@ -465,13 +443,6 @@ nnoremap <C-e>b :Buffers<CR>
 nnoremap <C-e>g :GFiles<CR>
 " FZF Search Lines in Current Buffer
 nnoremap <C-e>l :BLines<CR>
-"}}}
-
-"{{{ Plugins
-" Search Dash.app for word under cursor, current filetype
-noremap <leader>d :Dash<CR>
-" Search Dash.app for word under cursor, globally
-noremap <leader>D :Dash!<CR>
 "}}}
 
 " }}}
