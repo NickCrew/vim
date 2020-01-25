@@ -11,6 +11,7 @@ Plug 'jacoborus/tender.vim'
 Plug 'rakr/vim-one'
 Plug 'joshdick/onedark.vim'
 Plug 'morhetz/gruvbox'
+Plug 'connorholyday/vim-snazzy'
 Plug 'Nequo/vim-allomancer'
 Plug 'arcticicestudio/nord-vim'
 """" Source Control
@@ -454,13 +455,13 @@ set encoding=utf-8
 " set guifont=Source\ Code\ Pro\ for\ Powerline:h16
 " set guifont=Fira\ Mono\ Medium\ for\ Powerline:h15
 set guifont=MesloLGS\ NF:h15
-colorscheme nord
+colorscheme onedark
 set termguicolors  " use true color
 set background=dark
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1  " needed for correct colors in iterm, plus correct gutter symbols from linter and such
 
 " airline settings
-let g:airline_theme='nord'
+let g:airline_theme='onedark'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_left_sep='' " disable the arrows
