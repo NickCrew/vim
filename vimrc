@@ -45,7 +45,9 @@ Plug 'wellle/targets.vim'
 Plug 'tpope/vim-repeat'
 Plug 'rizzatti/dash.vim', { 'on': ['Dash'] }
 Plug 'tpope/vim-commentary'
+" Plug 'kana/vim-arpeggio'
 " Plug 'ervandew/supertab'
+" Plug 'drmingdrmer/vim-toggle-quickfix'
 """""""""""""""""""""""
 """" Language Features
 """""""""""""""""""""""
@@ -303,24 +305,20 @@ let g:netrw_bufsettings = 'nomodifiable nomodified readonly nobuflisted nowrap n
 
 " {{{ Mappings
 
-""""""""""""""""""""
-""" All Key Mappings
-""""""""""""""""""""
 let mapleader="\<space>"
 
 inoremap kj <Esc>
 
 " Reload .vimrc
 cmap src source $MYVIMRC 
+nnoremap <C-e>s :source $MYVIMRC<CR>
 
 " asyncrun
 map <F5> :call Compile_and_run()<CR>
-noremap <leader>R Compile_and_run()<CR>
+nnoremap <C-e><C-r> :call Compile_and_run()<CR>
 noremap <leader>a :AsyncRun 
 
-""""""""""""""""""
-""" Toggle States
-""""""""""""""""""
+"{{{ Toggles
 
 " Tagbar opens on right
 nmap <F7> :TagbarToggle<CR>
@@ -334,22 +332,14 @@ noremap <silent><F4> :Vexplore<CR>
 " Toggle the undo tree 
 noremap <silent> <F3> :UndotreeToggle<CR>
 
-" QuickFix and Preview Windows
-nmap <F11> :call QuickFixToggle()<CR>
-" Open and Close
-noremap <leader>lc :lclose<CR>
-noremap <leader>lo :lopen<CR>
-noremap <leader>cc :cclose<CR>
-noremap <leader>co :copen<CR>
+" Toggle quickfix
+nmap <silent><C-e>c :cclose<CR>
 
 " Open a terminal
-nnoremap <leader>tt :terminal<CR>
+nnoremap <silent><C-e><C-t> :terminal<CR>
+"}}}
 
-
-"""""""""""""""""""""
-""" Text Manipulation
-"""""""""""""""""""""
-
+"{{{ Text Actions
 " Write as super user
 cmap w!! w !sudo tee % > /dev/null
 
@@ -407,11 +397,9 @@ nnoremap <Leader>html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 
 " Complete current line 
 inoremap <C-c> <C-x><C-l>
+"}}}
 
-
-""""""""""""""
-""" Navigation
-""""""""""""""
+"{{{ Windows
 
 " Switch Panes and Tabs
 map <C-j> <C-W>j
@@ -434,11 +422,9 @@ map <leader>ew :e %%
 map <leader>es :sp %%
 map <leader>ev :vsp %%
 map <leader>et :tabe %%
+"}}}
 
-
-"""""""""""""""""""
-""" Buffer Controls
-"""""""""""""""""""
+"{{{ Buffer Controls
 
 " Switch to last accessed buffer
 noremap <leader><tab> :b#<CR>
@@ -468,33 +454,25 @@ while c <= 99
   execute "nnoremap " . c . "gb :" . c . "b\<CR>"
   let c += 1
 endwhile
+"}}}
 
-
-""""""""""""""""
-""" FZF Control
-""""""""""""""""
+"{{{ FZF Controls
 "  FZF Standard Search
-noremap <leader>F :FZF<CR>
+nnoremap <C-e>f :FZF<CR>
 " FZF Buffer Search
-noremap <leader>B :Buffers<CR>
+nnoremap <C-e>b :Buffers<CR>
 " FZF Git Files Search
-noremap <leader>G :GFiles<CR>
+nnoremap <C-e>g :GFiles<CR>
 " FZF Search Lines in Current Buffer
-noremap <leader>BL :BLines<CR>
-" FZF Search Lines in loaded buffers
-noremap <leader>L :Lines<CR> 
-" FZF Search Windows
-noremap <leader>W :Windows<CR>
+nnoremap <C-e>l :BLines<CR>
+"}}}
 
-
-""""""""""""""""""""
-""" External Progams
-""""""""""""""""""""
-
+"{{{ Plugins
 " Search Dash.app for word under cursor, current filetype
 noremap <leader>d :Dash<CR>
 " Search Dash.app for word under cursor, globally
 noremap <leader>D :Dash!<CR>
+"}}}
 
 " }}}
 

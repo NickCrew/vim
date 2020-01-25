@@ -4,7 +4,6 @@
   
 * You should probably look into the code completion and async plug-ins if you're planning on using them.  
   
-* __If you want linting (ALE) to work:__ you will need a linter installed on your system such as flake8 or pylint.  
   
 * You need the patched powerline fonts for vim-airline: https://github.com/powerline/fonts  
   
