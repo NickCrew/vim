@@ -452,7 +452,8 @@ nnoremap <C-e>l :BLines<CR>
 "let python_highlight_all=1
 set encoding=utf-8
 " set guifont=Source\ Code\ Pro\ for\ Powerline:h16
-set guifont=Fira\ Mono\ Medium\ for\ Powerline:h15
+" set guifont=Fira\ Mono\ Medium\ for\ Powerline:h15
+set guifont=MesloLGS\ NF:h15
 colorscheme nord
 set termguicolors  " use true color
 set background=dark
