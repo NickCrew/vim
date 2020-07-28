@@ -15,22 +15,25 @@ Plug 'mbbill/undotree'
 Plug 'junegunn/fzf',  { 'dir': '~/.fzf' }
 Plug 'junegunn/fzf.vim'
 Plug 'mbbill/undotree'
-Plug 'romainl/vim-qf'
+"Plug 'romainl/vim-qf'
 Plug 'romainl/vim-devdocs'
+"Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 call plug#end()
 
 filetype plugin indent on
 syntax on
 
-set clipboard=unnamedplus
+set clipboard=unnamed
 set backspace=indent,eol,start
-"set lazyredraw
 set ttimeoutlen=2
 set virtualedit=block
 set mouse=a
 set nocompatible
+set hidden
+set encoding=utf-8
 
-set backupdir=~/vimfiles/backup//
+set nobackup
+set nowritebackup
 set directory=~/vimfiles/swap//
 set undofile
 set undolevels=1000
@@ -49,7 +52,14 @@ set tabstop=4 shiftwidth=4 softtabstop=4 noexpandtab
 set hlsearch
 set incsearch
 
+" For coc.vim
+set cmdheight=2
+set shortmess+=c
+set updatetime=300
+
+" Completion
 set completeopt-=i
+set complete-=t
 set completeopt+=preview,menu
 set path+=**
 set wildmenu
@@ -57,7 +67,6 @@ set wildmode=longest,list,full
 set smartcase
 set wildignorecase
 
-set encoding=utf-8
 
 let g:airline#extensions#tabline#enabled = 1
 if has('gui_running')
@@ -76,26 +85,20 @@ inoremap kj <Esc>
 " Reload .vimrc
 cmap src source $MYVIMRC
 
-" Async compile and run
-nnoremap <F5> :call Compile_and_run()<CR>
-
 " Toggle quick fix
-nnoremap <F11> <Plug>(qf_qf_toggle)
-
-" Tagbar opens on right
-nnoremap <F7> :TagbarToggle<CR>
+map <C-w>q <Plug>(qf_qf_toggle)
 
 " Remove formatting when pasting text
 set pastetoggle=<F2>
 
 " Open 30% file explorer window on left side
-nnoremap <C-w>e :Vexplore<CR>
+map <C-w>e :Vexplore<CR>
 
 " Toggle the undo tree
-nnoremap <silent> <F3> :UndotreeToggle<CR>
+map <silent> <F3> :UndotreeToggle<CR>
 
 " Open a terminal
-nnoremap <C-w>t :terminal<CR>
+map <C-w>t :terminal<CR>
 
 
 """""""""""""""""""""

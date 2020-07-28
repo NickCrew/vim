@@ -2,7 +2,7 @@
 
 " Appearance settings
 set rop=type:directx
-set background=light
+set background=dark
 colorscheme gruvbox
 let g:airline_theme='gruvbox'
 set guifont=Fira\ Code\ Retina:h10
@@ -11,3 +11,7 @@ set guifont=Fira\ Code\ Retina:h10
 set lines=40
 set columns=120
 
+" Disable bell sounds
+set vb t_vb=
+
+set cursorline
