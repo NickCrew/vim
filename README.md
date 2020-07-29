@@ -14,6 +14,9 @@ functionality first to see what your needs are. I agree but you are your own hum
 ***
 
 ### Setup for Windows
+
+    git clone https://github.com/NickCrew/vim.git -b windows ~/vimfiles
+
 *courtesty [u/romainl](https://reddit.com/u/romainl)*  
 
 As recommended in :help vimrc, we will keep our vimrc in:
